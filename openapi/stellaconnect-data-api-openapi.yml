@@ -1,0 +1,327 @@
+openapi: 3.0.0
+info:
+  title: Agent Connect Coaching Data API
+  description: Agent Connect API
+  termsOfService: https://medallia.com/about/legal/terms/api
+  version: 1.0.0
+servers:
+- url: https://{subdomain}.api.stellaconnect.net
+  variables:
+    subdomain:
+      description: Subdomain for the Agent Connect API
+      default: subdomain
+security:
+- ApiKeyInHeader: []
+  JwtAuth: []
+tags:
+- name: Data
+paths:
+  /v2/data:
+    get:
+      summary: Feedbacks v2
+      parameters:
+      - name: created_at_gte
+        in: query
+        description: A filter for interactions created at or after the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: A filter for interactions created at or before the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: responded_at_gte
+        in: query
+        description: A filter for interactions responded at or after the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: responded_at_lte
+        in: query
+        description: A filter for interactions responded at or before the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: stream
+        in: query
+        description: Enables HTTP streaming (defaults to false)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+        example: 'false'
+      - name: limit
+        in: query
+        description: Specify the maximum number of interactions to be returned in a single request (defaults to 1000). See the 'Filter by time or sequence' article to learn more.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: '1000'
+      - name: after
+        in: query
+        description: A filter for interactions with Sequence IDs higher than the number provided (non-inclusive)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: '1000'
+      - name: include_recovery
+        in: query
+        description: Include Service Recovery interactions in returned data (defaults to false)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+        example: 'false'
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of Feedback records.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_FeedbacksV2'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
+      tags:
+      - Data
+components:
+  schemas:
+    ResponseBodyDataReturn_FeedbacksV2:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The interaction's unique identifier within Agent Connect's system
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the interaction
+        parent_uuid:
+          type: string
+          description: The UUID of the parent survey (only present for Service Recovery surveys)
+        is_recovery:
+          type: boolean
+          description: A flag to indicate whether the interaction is a Service Recovery survey
+        branding:
+          type: string
+          description: The interaction's branding subdomain
+        channel:
+          type: string
+          description: The interaction's channel
+        ext_interaction_id:
+          type: string
+          description: The client-supplied Interaction ID from the originating system
+        language:
+          type: string
+          description: The language used for the customer survey (such as 'en', 'es', etc.)
+        survey_id:
+          type: integer
+          description: The ID of the survey template used for the customer survey
+        survey_name:
+          type: string
+          description: The name of the survey template
+        tags:
+          type: array
+          description: 'An array of client-supplied tags associated with the interaction. Note: Values have a maximum limit of 2,000 characters; any payload exceeding this will be truncated by the server to the first 2,000 characters.'
+          items:
+            type: string
+        request_created_at:
+          type: string
+          description: The date and time the interaction was entered into Agent Connect
+          format: date-time
+        request_delivery_status:
+          type: string
+          description: The status of the customer survey
+        request_sent_at:
+          type: string
+          description: The date and time the customer survey was sent
+          format: date-time
+        requested_via:
+          type: string
+          description: The type of request; will be 'manual' or 'API'
+        response_received_at:
+          type: string
+          description: The date and time the customer survey was received
+          format: date-time
+        reward_eligible:
+          type: boolean
+          description: A flag to indicate whether the interaction is eligible for a reward
+        reward_name:
+          type: string
+          description: The name of the reward, if applicable
+        marketing:
+          type: object
+          properties:
+            custom_link_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a custom link
+            custom_link_initiated:
+              type: boolean
+              description: A flag to indicate whether the custom link was clicked
+            facebook_follow_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a Facebook follow
+            facebook_follow_initiated:
+              type: boolean
+              description: A flag to indicate whether the Facebook follow was clicked
+            facebook_share_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a Facebook share
+            facebook_share_initiated:
+              type: boolean
+              description: A flag to indicate whether the Facebook share was clicked
+            twitter_follow_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for an X/Twitter follow
+            twitter_follow_initiated:
+              type: boolean
+              description: A flag to indicate whether the X/Twitter follow was clicked
+            twitter_share_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for an X/Twitter share
+            twitter_share_initiated:
+              type: boolean
+              description: A flag to indicate whether the X/Twitter share was clicked
+          additionalProperties: false
+          description: Details about the marketing features involved in the interaction
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the employee
+            email:
+              type: string
+              description: Email address of the employee
+            first_name:
+              type: string
+              description: First name of the employee
+            last_name:
+              type: string
+              description: Last name of the employee
+          additionalProperties: false
+          description: Details about the employee involved in the interaction
+        team_leader:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the team leader
+            full_name:
+              type: string
+              description: Full name of the team leader
+          additionalProperties: false
+          description: Details about the team leader of the employee involved in the interaction
+        customer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the customer
+            email:
+              type: string
+              description: Email address of the customer
+            full_name:
+              type: string
+              description: Full name of the customer
+          additionalProperties: false
+          description: Details about the customer involved in the interaction
+        custom_properties:
+          type: object
+          description: An object containing the interaction’s custom properties and mapped custom properties
+        answers:
+          type: object
+          properties:
+            question_id:
+              type: string
+              description: The System ID of the question associated with the answer
+            question_text:
+              type: string
+              description: The English template for the question text
+            comment:
+              type: string
+              description: Optional comment from the customer
+            selected_options:
+              type: object
+              properties:
+                option_id:
+                  type: string
+                  description: The System ID of the option
+                option_text:
+                  type: string
+                  description: The option’s label in English
+                integer_value:
+                  type: integer
+                  description: An integer value associated with options of certain types of questions
+              additionalProperties: false
+              description: An object containing the options selected by the customer keyed by the option’s system ID.
+          additionalProperties: false
+          description: 'An object containing the customer’s answers to the survey keyed by the question.
+
+
+            The keys are immutable, human-readable strings which uniquely identify the questions. For example, the answer to an agent star rating question might appear under ''agent_star_rating''. Common question identifiers are ''agent_star_rating'', ''nps'', ''fcr'', ''areas_of_excellence'', ''areas_of_improvement'', and ''rewards''.
+
+
+            Questions which were seen by the customer but not answered appear in this object as answers with no selected options. Questions which were not seen by the customer do not appear in this object.
+
+
+            Each answer object contains attributes from the question and the answer.'
+      additionalProperties: false
+  securitySchemes:
+    ApiKeyInHeader:
+      type: apiKey
+      name: x-api-key
+      in: header
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

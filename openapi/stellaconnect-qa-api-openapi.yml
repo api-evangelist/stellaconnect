@@ -1,0 +1,697 @@
+openapi: 3.0.0
+info:
+  title: Agent Connect Coaching Qa API
+  description: Agent Connect API
+  termsOfService: https://medallia.com/about/legal/terms/api
+  version: 1.0.0
+servers:
+- url: https://{subdomain}.api.stellaconnect.net
+  variables:
+    subdomain:
+      description: Subdomain for the Agent Connect API
+      default: subdomain
+security:
+- ApiKeyInHeader: []
+  JwtAuth: []
+tags:
+- name: Qa
+paths:
+  /v2/qa:
+    get:
+      summary: QA Reviews
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request reviews completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request reviews completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request reviews after the specified sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Reviews.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QAReviews'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
+      tags:
+      - Qa
+  /v2/qa/audits:
+    get:
+      summary: QA Audits
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request QA Audits created after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request QA Audits created before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_gte
+        in: query
+        description: Request QA Audits completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_lte
+        in: query
+        description: Request QA Audits completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request QA Audits after the specified Sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Audits.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QAAudits'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
+      tags:
+      - Qa
+  /v2/qa/calibrations:
+    get:
+      summary: QA Calibrations
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request Calibrations created after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request Calibrations created before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_gte
+        in: query
+        description: Request Calibrations completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_lte
+        in: query
+        description: Request Calibrations completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request Calibrations after the specified Sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Calibrations.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QACalibrations'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
+      tags:
+      - Qa
+components:
+  schemas:
+    ResponseBodyDataReturn_QAReviews:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this review
+        interaction_id:
+          type: string
+          description: The client supplied external interaction ID from the originating system (CRM, helpdesk, etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        created_at:
+          type: string
+          description: The time the review was created
+          format: date-time
+        completed_at:
+          type: string
+          description: The time the review was completed
+          format: date-time
+        count_toward_score:
+          type: boolean
+          description: Indicates whether the QA Review counts toward the agent's overall score metric
+        score:
+          type: integer
+          description: Score (in percentage points) of the review, if count_toward_score is true
+        autofailed:
+          type: boolean
+          description: Indicates whether the QA Review was automatically failed
+        solicitation_id:
+          type: string
+          description: The universal unique ID of the associated solicitation for the review
+        sequence_id:
+          type: integer
+          description: The sequence ID of the review
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Scorecard name associated with the review
+            archived_at:
+              type: string
+              description: Archived date of the scorecard associated with the review, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used for the QA Review
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The client supplied custom ID of the reviewed employee
+            email:
+              type: string
+              description: Email address of the reviewed employee
+            first_name:
+              type: string
+              description: First name of the reviewed employee
+            last_name:
+              type: string
+              description: Last name of the reviewed employee
+            team_leader:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Custom ID of the team leader of the reviewed employee
+                email:
+                  type: string
+                  description: Email address of the team leader of the reviewed employee
+                first_name:
+                  type: string
+                  description: First name of the team leader of the reviewed employee
+                last_name:
+                  type: string
+                  description: Last name of the team leader of the reviewed employee
+              additionalProperties: false
+              description: Details about the team leader of the employee
+          additionalProperties: false
+          description: Details about the reviewed employee
+        groups:
+          type: array
+          description: List of the group memberships of the employee when the review was created
+          items:
+            type: string
+        reviewer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The client supplied custom ID of the reviewer employee
+            email:
+              type: string
+              description: Email address of the reviewer employee
+            first_name:
+              type: string
+              description: First name of the reviewer employee
+            last_name:
+              type: string
+              description: Last name of the reviewer employee
+          additionalProperties: false
+          description: Details about the reviewer of the QA Review
+        questions:
+          type: object
+          properties:
+            <question_id>:
+              type: object
+              properties:
+                question_text:
+                  type: string
+                  description: Text of the review question
+                section:
+                  type: string
+                  description: Section of the review question
+                section_weight:
+                  type: integer
+                  description: Weight of the section
+                comment:
+                  type: string
+                  description: Comments provided by the reviewer
+                selected_options:
+                  type: object
+                  properties:
+                    <option_id>:
+                      type: object
+                      properties:
+                        option_text:
+                          type: string
+                          description: The selected answer to the question; will be empty if no answer was selected
+                        score:
+                          type: integer
+                          description: Point value of the selected answer
+                      additionalProperties: false
+                      description: Details about a specific option
+                  additionalProperties: false
+                  description: Details about the options selected by the reviewer
+              additionalProperties: false
+              description: Details about a specific question on the scorecard
+          additionalProperties: false
+          description: Details about the questions on the scorecard
+      additionalProperties: false
+    ResponseBodyDataReturn_QAAudits:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this QA Audit
+        audit_type:
+          type: string
+          description: The type of audit performed (Audit or Calibration Audit)
+        interaction_id:
+          type: string
+          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk, etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        completed_at:
+          type: string
+          description: The time the audit was completed
+          format: date-time
+        count_toward_score:
+          type: boolean
+          description: Indicates whether the underlying QA Review counts toward the agent's overall score metric
+        score:
+          type: integer
+          description: Score of the audit (in percentage points) if counted toward score
+        autofailed:
+          type: boolean
+          description: Indicates whether the audit was automatically failed
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the audit
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the scorecard associated with the original review
+            archived_at:
+              type: string
+              description: Archived date of the scorecard associated with the original review, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used for the underlying QA Review
+        reviewer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the reviewer
+            email:
+              type: string
+              description: Email address of the reviewer
+            first_name:
+              type: string
+              description: First name of the reviewer
+            last_name:
+              type: string
+              description: Last name of the reviewer
+            team_leader:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Client-supplied custom ID of the reviewer’s team leader
+                email:
+                  type: string
+                  description: Email address of the reviewer’s team leader
+                first_name:
+                  type: string
+                  description: First name of the reviewer’s team leader
+                last_name:
+                  type: string
+                  description: Last name of the reviewer’s team leader
+              additionalProperties: false
+              description: Details about the reviewer’s team leader
+          additionalProperties: false
+          description: Details about the reviewer being audited
+        groups:
+          type: array
+          description: List of the group memberships of the reviewer when the audit was created
+          items:
+            type: string
+        auditor:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the auditor
+            email:
+              type: string
+              description: Email address of the auditor
+            first_name:
+              type: string
+              description: First name of the auditor
+            last_name:
+              type: string
+              description: Last name of the auditor
+          additionalProperties: false
+          description: Details about the auditor
+        questions:
+          type: object
+          properties:
+            question_text:
+              type: string
+              description: Text of the audit question
+            section:
+              type: string
+              description: Section of the audit question
+            section_weight:
+              type: integer
+              description: Weight of the section
+            comment:
+              type: string
+              description: Comments provided by the auditor
+            option_text:
+              type: string
+              description: The selected answer to the question (will be empty if no answer was selected)
+          additionalProperties: false
+          description: Details about the questions on the audit scorecard
+        qa_review:
+          type: object
+          description: The target QA Review of this audit, containing all fields defined in the QA Review payload
+      additionalProperties: false
+    ResponseBodyDataReturn_QACalibrations:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this Calibration
+        alignment_score:
+          type: integer
+          description: The alignment score derived from all participants' input
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the Calibration
+        started_by:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of the user that started the Calibration
+            email:
+              type: string
+              description: Email address of the user that started the Calibration
+            first_name:
+              type: string
+              description: First name of the user that started the Calibration
+            last_name:
+              type: string
+              description: Last name of the user that started the Calibration
+          additionalProperties: false
+          description: Details about the user that started the Calibration
+        meeting_date:
+          type: string
+          description: The date of the Calibration
+          format: date-time
+        interaction_id:
+          type: string
+          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk, etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        participants:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of an individual participant
+            email:
+              type: string
+              description: Email address of an individual participant
+            first_name:
+              type: string
+              description: First name of an individual participant
+            last_name:
+              type: string
+              description: Last name of an individual participant
+          additionalProperties: false
+          description: Details about the participants in the Calibration
+        notes:
+          type: string
+          description: Any notes attached to the Calibration
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the scorecard used by the participants
+            archived_at:
+              type: string
+              description: Archived date of the scorecard used by the participants, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used by the participants
+        completed_at:
+          type: string
+          description: The time the session was completed
+          format: date-time
+        created_at:
+          type: string
+          description: The time the session was created
+          format: date-time
+        questions:
+          type: object
+          properties:
+            question_text:
+              type: string
+              description: Text of a specific question on the scorecard
+            section:
+              type: string
+              description: Section in which a specific question was contained
+            section_weight:
+              type: integer
+              description: The assigned weight of the section in which a specific question was contained, if applicable
+            question_alignment_score:
+              type: integer
+              description: The alignment score derived from all participants' input on a specific question
+            selected_option:
+              type: object
+              properties:
+                qa_option_id:
+                  type: string
+                  description: The ID of the selected answer to the question (will be empty if no answer was selected)
+                option_text:
+                  type: string
+                  description: The text of the selected answer to the question (will be empty if no answer was selected)
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+              additionalProperties: false
+              description: Details about the option selected by the participant
+            options:
+              type: object
+              properties:
+                option_text:
+                  type: string
+                  description: The text of a specific answer choice
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+                participants:
+                  type: object
+                  properties:
+                    employee:
+                      type: object
+                      properties:
+                        custom_id:
+                          type: string
+                          description: The ID of a participant who selected a specific answer
+                        email:
+                          type: string
+                          description: Email address of a participant who selected a specific answer
+                        first_name:
+                          type: string
+                          description: First name of a participant who selected a specific answer
+                        last_name:
+                          type: string
+                          description: Last name of a participant who selected a specific answer
+                        comment:
+                          type: string
+                          description: Comment left by an individual participant who selected a specific answer, if applicable
+                      additionalProperties: false
+                      description: Details about the employee who selected a specific answer
+                  additionalProperties: false
+                  description: An array of employees who participated in the Calibration
+              additionalProperties: false
+              description: Details about the available options
+          additionalProperties: false
+          description: Details about the questions on the scorecard
+      additionalProperties: false
+  securitySchemes:
+    ApiKeyInHeader:
+      type: apiKey
+      name: x-api-key
+      in: header
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

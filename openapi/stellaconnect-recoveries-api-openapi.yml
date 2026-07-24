@@ -1,0 +1,127 @@
+openapi: 3.0.0
+info:
+  title: Agent Connect Coaching Recoveries API
+  description: Agent Connect API
+  termsOfService: https://medallia.com/about/legal/terms/api
+  version: 1.0.0
+servers:
+- url: https://{subdomain}.api.stellaconnect.net
+  variables:
+    subdomain:
+      description: Subdomain for the Agent Connect API
+      default: subdomain
+security:
+- ApiKeyInHeader: []
+  JwtAuth: []
+tags:
+- name: Recoveries
+paths:
+  /v1/recoveries:
+    post:
+      summary: Create a service recovery request
+      parameters:
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Accept
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      requestBody:
+        description: An object describing the service recovery request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBodyCreateServiceRecoveryRequest'
+        required: true
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an object describing the service recovery request
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyCreateServiceRecoveryRequest'
+        '400':
+          description: Validation Error — The request was invalid. Please check the required request parameters and try again.
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
+      tags:
+      - Recoveries
+components:
+  schemas:
+    RequestBodyCreateServiceRecoveryRequest:
+      $ref: '#/components/schemas/ServiceRecoveryRequestModel'
+    ServiceRecoveryRequestModel:
+      type: object
+      properties:
+        do_not_send:
+          type: boolean
+          description: "A flag to indicate that no feedback request email should be sent as a result of this interaction\n\n This is used to ensure accurate reporting of interaction counts."
+        tags:
+          type: array
+          description: "A collection of categories under which this interaction can be classified \n\n Call reason or disposition are good uses. These are intended to be broad rather than uniquely identifying tags. Up to 20 are allowed. Note: Values have a maximum limit of 2,000 characters; any payload exceeding this will be truncated by the server to the first 2,000 characters."
+          items:
+            type: string
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: "A custom identifier of the employee that this survey should be sent on behalf of\n\n This must match the custom identifier that this user is set up with on the Agent Connect platform. Either one of the email or custom_id fields are required."
+            email:
+              type: string
+              description: "The email address of the employee that this survey should be sent on behalf of\n\n This must match the email that this user is set up with on the Agent Connect platform. Either one of the email or custom_id fields are required."
+          additionalProperties: false
+          description: Information about the employee who interacted with the customer
+        initial_feedback_request_id:
+          type: string
+          description: The ID of the initial feedback request that this service recovery request is associated with
+        ext_interaction_id:
+          type: string
+          description: The External Interaction ID of the initial feedback request that this service recovery request is associated with
+        external_url:
+          type: string
+          description: The URL of the interaction with which the initial feedback request is associated, from your CRM or helpdesk system
+    ResponseBodyCreateServiceRecoveryRequest:
+      type: object
+      properties:
+        request_id:
+          type: string
+          description: The universal unique identifier for this service recovery request
+      additionalProperties: false
+  securitySchemes:
+    ApiKeyInHeader:
+      type: apiKey
+      name: x-api-key
+      in: header
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
