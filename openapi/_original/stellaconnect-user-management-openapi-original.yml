@@ -1,0 +1,1105 @@
+openapi: 3.0.0
+info:
+  title: Agent Connect API
+  description: Agent Connect API
+  termsOfService: https://medallia.com/about/legal/terms/api
+  version: 1.0.0
+servers:
+- url: https://{subdomain}.api.stellaconnect.net
+  variables:
+    subdomain:
+      description: Subdomain for the Agent Connect API
+      default: subdomain
+security:
+- ApiKeyInHeader: []
+  JwtAuth: []
+paths:
+  /v2/employees/{id}/activate:
+    put:
+      summary: Activate Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: A 200 response code indicates that the employee has been activated.
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '404':
+          description: Not Found — The employee was not found.
+        '422':
+          description: Unprocessable Entity — The request was well-formed but was unable to be followed
+            due to semantic errors.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+    parameters:
+    - name: id
+      in: path
+      description: Email or custom ID
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  /v2/employees/{id}:
+    get:
+      summary: Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an object describing the employee.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyGetEmployee'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '404':
+          description: Not Found — The employee was not found.
+        '422':
+          description: Unprocessable Entity — The request was well-formed but was unable to be followed
+            due to semantic errors.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+    put:
+      summary: Update Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      requestBody:
+        description: An object describing the updates to be made to the employee
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBodyUpdateEmployee'
+        required: true
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an object describing the employee.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyUpdateEmployee'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '404':
+          description: Not Found — The employee was not found.
+        '422':
+          description: Unprocessable Entity — The request was well-formed but was unable to be followed
+            due to semantic errors.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+    parameters:
+    - name: id
+      in: path
+      description: Email or custom_employee_id of the employee
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  /v2/employees:
+    get:
+      summary: Employees
+      parameters:
+      - name: external_id
+        in: query
+        description: (Optional) External ID of the last employee in the current paginated response. This
+          is used to build the next page of employees.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: number_of_employees
+        in: query
+        description: (Optional) Sets the amount of employees that will be returned during each request.
+          Default = 100. Max = 500.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: '(Optional) Filters the users returned based on their status. Options are: active,
+          deactivated, pending review, confirmed, unapproved, created.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: employee_status
+        in: query
+        description: '(Optional) Filters the users returned based on their employment status. Options
+          are: full-time, part-time, temp.'
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: team_leader_ids
+        in: query
+        description: (Optional) Filters the users returned based on team leader. Use the team leader's
+          numerical ID as the value. Add multiple parameters to return employees from multiple teams.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: reporting_groups
+        in: query
+        description: (Optional) Filters the users returned based on reporting group. Use the reporting
+          group's name as the value. Add multiple parameters to return employees from multiple reporting
+          groups.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: roles
+        in: query
+        description: (Optional) Filters the users returned based on role. Use the role's name as the value.
+          Add multiple parameters to return employees from multiple roles.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: (Optional) Returns employees that partially match the specified value. This will
+          initiate a search by the employee's name, email address, and custom employee ID.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of employees.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyGetEmployees'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+    post:
+      summary: Create Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      requestBody:
+        description: An object describing the employee to be invited
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBodyCreateEmployee'
+        required: true
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an object describing the employee.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyCreateEmployee'
+        '201':
+          description: Created — A 201 response code indicates that the employee has been created.
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+  /v2/employees/{id}/deactivate:
+    put:
+      summary: Deactivate Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      responses:
+        '200':
+          description: A 200 response code indicates that the employee has been deactivated.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '404':
+          description: Not Found — The employee was not found.
+        '422':
+          description: Unprocessable Entity — The request was well-formed but was unable to be followed
+            due to semantic errors.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+    parameters:
+    - name: id
+      in: path
+      description: Email or custom_employee_id of the employee
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  /v2/employees/invite:
+    post:
+      summary: Invite Employee
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: Content-Type
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: application/json
+      requestBody:
+        description: An object describing the employee to be invited
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBodyInviteEmployee'
+        required: true
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an object describing the employee.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyInviteEmployee'
+        '201':
+          description: Created — A 201 response code indicates that the employee has been invited.
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+components:
+  schemas:
+    ResponseBodyGetEmployee:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email address of the employee
+        custom_employee_id:
+          type: string
+          description: A custom identifier for the employee
+        first_name:
+          type: string
+          description: The first name of the employee
+        last_name:
+          type: string
+          description: The last name of the employee
+        team_leader_id:
+          type: integer
+          description: The ID of the employee's team leader
+        team_leader_email:
+          type: string
+          description: The email address of the employee's team leader
+        role:
+          type: string
+          description: The role of the employee on the Agent Connect platform
+        license_type:
+          type: string
+          description: The license type of the employee on the Agent Connect platform
+        channels:
+          type: string
+          description: The channels enabled for the employee
+        employment_status:
+          type: string
+          description: The employment status of the employee
+        start_date:
+          type: string
+          description: The start date of the employee in ISO 8601 format
+        hometown:
+          type: string
+          description: The home town of the employee
+        state_or_country:
+          type: string
+          description: The state or country of the employee
+        profile_text:
+          type: string
+          description: The text of the employee's bio in Agent Connect
+        image:
+          type: string
+          description: The URL of the employee's profile image
+        groups:
+          type: array
+          description: The groups the employee is a member of on the Agent Connect platform
+          example:
+          - Support
+          - Tier 2
+          - Admins
+          items:
+            type: string
+        manage_team:
+          type: boolean
+          description: Indicates whether the employee is a team leader
+        last_active:
+          type: string
+          description: The last active time of the employee in UTC
+          format: date-time
+          example: '2026-03-15T14:30:00Z'
+    ResponseBodyGetEmployees:
+      type: object
+      properties:
+        employees:
+          type: object
+          properties:
+            email:
+              type: string
+              description: Email address of the employee
+            custom_employee_id:
+              type: string
+              description: A custom identifier for the employee
+            first_name:
+              type: string
+              description: First name of the employee
+            last_name:
+              type: string
+              description: Last name of the employee
+            team_leader_id:
+              type: integer
+              description: The ID of the employee's team leader
+            team_leader_email:
+              type: string
+              description: Email address of the employee's team leader
+            role:
+              type: string
+              description: The role of the employee on the Agent Connect platform
+            license_type:
+              type: string
+              description: The license type of the employee on the Agent Connect platform
+            channels:
+              type: array
+              description: The channels enabled for the employee
+              example:
+              - phone
+              - chat
+              - email
+              items:
+                type: string
+            employment_status:
+              type: string
+              description: The employment status of the employee
+            start_date:
+              type: string
+              description: The start date of the employee in ISO 8601 format
+              format: date
+              example: '2026-03-15'
+            hometown:
+              type: string
+              description: The home town of the employee
+            state_or_country:
+              type: string
+              description: The state or country of the employee
+            profile_text:
+              type: string
+              description: The text of the employee's bio in Agent Connect
+            image:
+              type: string
+              description: The URL of the employee's profile image
+              example: https://<subdomain>.stellaconnect.net/api/v2/employees/123/image.png
+            groups:
+              type: array
+              description: The groups the employee is a member of on the Agent Connect platform
+              example:
+              - Support
+              - Tier 2
+              - Admins
+              items:
+                type: string
+            manage_team:
+              type: boolean
+              description: Indicates whether the employee is a team leader
+            last_active:
+              type: string
+              description: The last active time of the employee in UTC
+              format: date-time
+              example: '2026-03-15T14:30:00Z'
+        meta:
+          type: object
+          properties:
+            next_page:
+              type: string
+              description: The URL of the next page of employees
+              example: https://<subdomain>.stellaconnect.net/api/v2/employees?after=<id>
+          additionalProperties: false
+          description: Information about the next page of employees
+    ResponseBodyInviteEmployee:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the invited employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the invited employee
+        first_name:
+          type: string
+          description: First name of the invited employee
+        last_name:
+          type: string
+          description: Last name of the invited employee
+        temporary_password:
+          type: string
+          description: Temporary password for the invited employee
+        team_leader_id:
+          type: string
+          description: "The ID of the invited employee’s team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the invited employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The license type of the invited employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The assigned channels of the invited employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The employment status of the invited employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The start date of the invited employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The hometown of the invited employee
+        state_or_country:
+          type: string
+          description: The state or country of the invited employee
+        profile_text:
+          type: string
+          description: The bio of the invited employee
+        image:
+          type: string
+          description: "The URL of the profile image of the invited employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        groups:
+          type: array
+          description: List of groups (names) that the invited employee is part of
+          items:
+            type: string
+    ResponseBodyCreateEmployee:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the invited employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the invited employee
+        first_name:
+          type: string
+          description: First name of the invited employee
+        last_name:
+          type: string
+          description: Last name of the invited employee
+        temporary_password:
+          type: string
+          description: Temporary password for the invited employee
+        team_leader_id:
+          type: string
+          description: "The ID of the invited employee’s team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the invited employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The license type of the invited employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The assigned channels of the invited employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The employment status of the invited employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The start date of the invited employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The hometown of the invited employee
+        state_or_country:
+          type: string
+          description: The state or country of the invited employee
+        profile_text:
+          type: string
+          description: The bio of the invited employee
+        image:
+          type: string
+          description: "The URL of the profile image of the invited employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        groups:
+          type: array
+          description: List of groups (names) that the invited employee is part of
+          items:
+            type: string
+    ResponseBodyUpdateEmployee:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the updated employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the updated employee
+        first_name:
+          type: string
+          description: Updated first name of the employee
+        last_name:
+          type: string
+          description: Updated last name of the employee
+        temporary_password:
+          type: string
+          description: Updated temporary password for the employee
+        team_leader_id:
+          type: string
+          description: "The ID of the employee’s updated team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the updated employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The updated license type of the employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The updated assigned channels of the employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The updated employment status of the employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The updated start date of the employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The updated hometown of the employee
+        state_or_country:
+          type: string
+          description: The updated state or country of the employee
+        profile_text:
+          type: string
+          description: The updated bio of the employee
+        image:
+          type: string
+          description: "The updated URL of the profile image of the employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        reporting_groups:
+          type: array
+          description: List of groups (names) that the employee is part of
+          items:
+            type: string
+        permissions:
+          type: array
+          description: List of permissions assigned to the employee's role
+          items:
+            type: string
+    RequestBodyUpdateEmployee:
+      $ref: '#/components/schemas/UpdateEmployeeModel'
+    UpdateEmployeeModel:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the updated employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the updated employee
+        first_name:
+          type: string
+          description: Updated first name of the employee
+        last_name:
+          type: string
+          description: Updated last name of the employee
+        temporary_password:
+          type: string
+          description: Updated temporary password for the employee
+        team_leader_id:
+          type: string
+          description: "The ID of the employee’s updated team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the updated employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The updated license type of the employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The updated assigned channels of the employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The updated employment status of the employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The updated start date of the employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The updated hometown of the employee
+        state_or_country:
+          type: string
+          description: The updated state or country of the employee
+        profile_text:
+          type: string
+          description: The updated bio of the employee
+        image:
+          type: string
+          description: "The updated URL of the profile image of the employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        groups:
+          type: array
+          description: "List of groups (names) that the employee is part of\n\n The names must exactly\
+            \ match groups set up in the system. Matching is case sensitive."
+          items:
+            type: string
+    RequestBodyInviteEmployee:
+      $ref: '#/components/schemas/InviteEmployeeModel'
+    RequestBodyCreateEmployee:
+      $ref: '#/components/schemas/CreateEmployeeModel'
+    InviteEmployeeModel:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the invited employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the invited employee
+        first_name:
+          type: string
+          description: First name of the invited employee
+        last_name:
+          type: string
+          description: Last name of the invited employee
+        temporary_password:
+          type: string
+          description: Temporary password for the invited employee
+        team_leader_id:
+          type: string
+          description: "The ID of the invited employee’s team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the invited employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The license type of the invited employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The assigned channels of the invited employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The employment status of the invited employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The start date of the invited employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The hometown of the invited employee
+        state_or_country:
+          type: string
+          description: The state or country of the invited employee
+        profile_text:
+          type: string
+          description: The bio of the invited employee
+        image:
+          type: string
+          description: "The URL of the profile image of the invited employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        groups:
+          type: array
+          description: List of groups (names) that the invited employee is part of
+          items:
+            type: string
+    CreateEmployeeModel:
+      type: object
+      properties:
+        email:
+          type: string
+          description: "Email of the invited employee\n\n Employee email must be in accepted email format."
+        custom_employee_id:
+          type: string
+          description: ID of the invited employee
+        first_name:
+          type: string
+          description: First name of the invited employee
+        last_name:
+          type: string
+          description: Last name of the invited employee
+        temporary_password:
+          type: string
+          description: Temporary password for the invited employee
+        team_leader_id:
+          type: string
+          description: "The ID of the invited employee’s team leader\n\n If not found, an error will be\
+            \ returned."
+        team_leader_email:
+          type: string
+          description: "The email address of the invited employee’s team leader\n\n If no team leader\
+            \ is assigned, the default will be ‘unassigned’. If not found, an error will be returned."
+        role:
+          type: string
+          description: "The name of the role to assign the employee\n\n The role must exist to be assigned.\
+            \ If a previous role exists that is different from the one provided, the user will be unassigned\
+            \ from the previous role and assigned to the new one."
+        manage_team:
+          type: boolean
+          description: "Determines team ownership\n\n If true, the employee will own a team to which other\
+            \ employees can be added. If false, the user can be re-assigned to a team instead. The default\
+            \ value is false.\n\n All promotions are allowed. Once a user has manage_team set to true,\
+            \ it cannot be taken away. However, you may simply reassign their reporting users to a new\
+            \ team and change the user’s role to effectively demote a user."
+        license_type:
+          type: string
+          description: "The license type of the invited employee\n\n Allowed values are: standard, flexible."
+        channels:
+          type: array
+          description: "The assigned channels of the invited employee\n\n If not provided, the default\
+            \ assignment = [“phone”, “chat”, “email”]."
+          items:
+            type: string
+        employment_status:
+          type: string
+          description: "The employment status of the invited employee\n\n Allowed values are: full-time,\
+            \ part-time, or temp."
+        start_date:
+          type: string
+          description: "The start date of the invited employee\n\n Allowed format: YYYY-MM-DD"
+          format: date
+          example: '2026-03-15'
+        hometown:
+          type: string
+          description: The hometown of the invited employee
+        state_or_country:
+          type: string
+          description: The state or country of the invited employee
+        profile_text:
+          type: string
+          description: The bio of the invited employee
+        image:
+          type: string
+          description: "The URL of the profile image of the invited employee\n\n The image must be in\
+            \ PNG format and the URL must be publicly accessible."
+        groups:
+          type: array
+          description: List of groups (names) that the invited employee is part of
+          items:
+            type: string
+  securitySchemes:
+    ApiKeyInHeader:
+      type: apiKey
+      name: x-api-key
+      in: header
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

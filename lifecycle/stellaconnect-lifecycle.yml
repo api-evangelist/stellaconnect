@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.medallia.com/en/agent-connect/status-page,
+  https://docs.medallia.com/en/agent-connect/release-notes,
+  openapi/ (URI-path versioning observed across the three specs)
+versioning:
+  scheme: uri-path
+  current: v2 (Data Return, User Management); v1 (Requests)
+  notes: >-
+    The Requests API lives at /v1/* while the Data Return and User Management APIs live at /v2/*.
+    The Feedbacks data endpoint is explicitly labelled "Feedbacks v2" in the docs. No dated or
+    header-based versioning mechanism is documented.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support was found in
+    the Agent Connect documentation. No operations in the harvested OpenAPI specs are marked deprecated.
+sla:
+  url: null
+  public_uptime_target: null
+status_page: https://agentconnect.status.medallia.com
+status_page_notes: >-
+  agentconnect.status.medallia.com (StatusCast) shows current and historical availability of the Web
+  application, API application, and Survey application components, with per-environment tabs, an
+  incident timeline, and subscriptions via email, webhook (StatusCast API, Microsoft Teams, or Slack
+  format), and RSS.
+release_notes: https://docs.medallia.com/en/agent-connect/release-notes
+deprecated_operations: []

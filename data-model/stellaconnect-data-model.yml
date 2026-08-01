@@ -1,0 +1,75 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stellaconnect-requests-openapi-original.yml, openapi/stellaconnect-data-return-openapi-original.yml,
+  openapi/stellaconnect-user-management-openapi-original.yml
+description: >-
+  Entity-relationship graph of the Agent Connect domain, derived from the harvested OpenAPI schema
+  references and id-linking fields. A customer interaction produces a FeedbackRequest sent on behalf
+  of an Employee; ServiceRecoveryRequests reference the initial feedback request; the Data Return
+  entities (Feedback, CoachingSession, QAReview, QAAudit, QACalibration) report on that activity and
+  carry sequence_id cursors.
+entities:
+- name: FeedbackRequest
+  spec: openapi/stellaconnect-requests-openapi-original.yml#FeedbackRequestModel
+  key_fields: [ext_interaction_id, channel, brand, language, country, custom_properties]
+- name: ServiceRecoveryRequest
+  spec: openapi/stellaconnect-requests-openapi-original.yml#ServiceRecoveryRequestModel
+  key_fields: [request_id, initial_feedback_request_id, ext_interaction_id]
+- name: Customer
+  spec: openapi/stellaconnect-requests-openapi-original.yml#FeedbackRequestModel.customer
+  key_fields: [custom_id, name, email]
+- name: Employee
+  spec: openapi/stellaconnect-user-management-openapi-original.yml
+  key_fields: [id, custom_id, email]
+- name: Feedback
+  spec: openapi/stellaconnect-data-return-openapi-original.yml#/v2/data
+  key_fields: [sequence_id]
+- name: CoachingSession
+  spec: openapi/stellaconnect-data-return-openapi-original.yml#/v2/coaching/sessions
+  key_fields: [sequence_id]
+- name: QAReview
+  spec: openapi/stellaconnect-data-return-openapi-original.yml#/v2/qa
+  key_fields: [sequence_id]
+- name: QAAudit
+  spec: openapi/stellaconnect-data-return-openapi-original.yml#/v2/qa/audits
+  key_fields: [sequence_id]
+- name: QACalibration
+  spec: openapi/stellaconnect-data-return-openapi-original.yml#/v2/qa/calibrations
+  key_fields: [sequence_id]
+relationships:
+- from: FeedbackRequest
+  to: Customer
+  type: has_one
+  via: customer
+- from: FeedbackRequest
+  to: Employee
+  type: belongs_to
+  via: employee.email / employee.custom_id
+- from: ServiceRecoveryRequest
+  to: FeedbackRequest
+  type: belongs_to
+  via: initial_feedback_request_id (or ext_interaction_id)
+- from: ServiceRecoveryRequest
+  to: Employee
+  type: belongs_to
+  via: employee.email / employee.custom_id
+- from: Feedback
+  to: FeedbackRequest
+  type: belongs_to
+  via: reported feedback originates from a feedback request
+- from: QAReview
+  to: Employee
+  type: belongs_to
+  via: reviewed team member
+- from: QAAudit
+  to: QAReview
+  type: belongs_to
+  via: audited review
+- from: QACalibration
+  to: QAReview
+  type: belongs_to
+  via: calibrated review scorecard
+- from: CoachingSession
+  to: Employee
+  type: belongs_to
+  via: coached team member

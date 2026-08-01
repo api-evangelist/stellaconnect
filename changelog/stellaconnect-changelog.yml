@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.medallia.com/en/agent-connect/release-notes
+scheme: named periodic releases (month/season labels), with an archive back to Jul 2018
+current: Feb 2026
+entries:
+- version: Feb 2026
+  date: '2026-02-18'
+  url: https://docs.medallia.com/en/agent-connect/release-notes/feb-2026
+  breaking: false
+  highlights:
+  - Achievements for frontline team members (gamified milestones for team members and QA reviewers)
+  - New Calibration Audits bringing alignment scoring to the QA process
+  - Edit or delete completed QA Audits, with a new "Edit Completed QA Audits" role permission
+  - Calibration sessions enhancements
+- version: Sep 2025
+  date: '2025-09-09'
+  url: https://docs.medallia.com/en/agent-connect/release-notes/sep-2025
+  breaking: false
+  highlights:
+  - Dynamic group membership driven by profile attributes and performance metrics
+  - Group display options (hide membership/data; color, emoji, or image identifiers)
+  - Export Responses page enhanced and renamed to Feedback Exports with customizable exports
+- version: Feb 2025
+  date: null
+  url: https://docs.medallia.com/en/agent-connect/release-notes/feb-2025
+  breaking: false
+  highlights: []
+- version: Spring 2024
+  date: null
+  url: https://docs.medallia.com/en/agent-connect/release-notes/spring-2024
+  breaking: false
+  highlights: []

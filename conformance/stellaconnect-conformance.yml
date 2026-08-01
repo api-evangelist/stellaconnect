@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.medallia.com/en/agent-connect/security-policies-and-controls/policies-compliance-and-certification,
+  https://docs.medallia.com/en/agent-connect/security-policies-and-controls,
+  derived from the three harvested OpenAPI specs
+standards:
+- id: jwt-rfc7519
+  conforms: true
+  evidence: Data Return and User Management APIs require an HMAC SHA256-signed JWT (Authorization
+    header) per the authentication docs and the JwtAuth bearer/JWT securityScheme in the specs.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 security schemes declared; authentication is API key + JWT.
+- id: oidc
+  conforms: false
+  evidence: No openIdConnect scheme; /.well-known/openid-configuration on stellaconnect.net redirects
+    to login (302), none published on api.stellaconnect.net (404).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses are plain HTTP statuses; no application/problem+json content documented.
+- id: pagination
+  conforms: true
+  evidence: Sequence-cursor pagination (`after` + sequence_id) with ISO 8601 time-window filters on
+    all Data Return endpoints.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key mechanism documented.
+- id: owasp-top-10
+  conforms: true
+  evidence: 'Compliance docs: "For OWASP, we follow security guidelines and implement the OWASP Top
+    10."'
+- id: gdpr
+  conforms: true
+  evidence: 'Compliance docs: "Medallia is GDPR compliant", including data subject access request
+    procedures with a 20-day SLA; a dedicated "Agent Connect and GDPR" page exists.'
+- id: ccpa
+  conforms: true
+  evidence: Dedicated "Agent Connect and CCPA" page under Security policies and controls.
+- id: pci-dss
+  conforms: false
+  evidence: 'Compliance docs: Medallia does not accept, process, or store credit card data, so PCI
+    does not apply.'
+- id: iso8601-timestamps
+  conforms: true
+  evidence: Data Return time filters use ISO 8601 date-time values (e.g. 2025-12-20T00:00:00-05:00).
+- id: iso639-language-codes
+  conforms: true
+  evidence: Requests API language field uses ISO 639-1 (+ optional 639-2 regional) designators.
+- id: iso3166-country-codes
+  conforms: true
+  evidence: Requests API country field requires ISO 3166 alpha-2 format.

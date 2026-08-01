@@ -1,0 +1,45 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Stella Connect (Medallia Agent Connect)
+providerId: stellaconnect
+generated: '2026-07-21'
+method: searched
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+- Rate Limiting
+- Customer Service
+description: Rate limits in effect for individual Agent Connect API keys on the Data Return endpoints.
+  Exceeding a limit returns 429 Too Many Requests. No published limits for the Requests or User
+  Management APIs.
+sources:
+- https://docs.medallia.com/en/agent-connect/api/usage-limits
+responseCodes:
+  throttled: 429
+limits:
+- name: GET /v2/coaching/sessions
+  scope: api_key
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+- name: GET /v2/qa
+  scope: api_key
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+- name: GET /v2/qa/audits
+  scope: api_key
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+- name: GET /v2/qa/calibrations
+  scope: api_key
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+- name: GET /v2/data
+  scope: api_key
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute

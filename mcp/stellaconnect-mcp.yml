@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/ (no official Stella Connect / Medallia Agent Connect MCP server found on npm, the
+  MCP registry, or the Agent Connect docs)
+server:
+  name: stellaconnect-agent-connect
+  transport: http
+  url: null
+notes: >-
+  Candidate tool list derived from the harvested Agent Connect OpenAPI operations. Only
+  createRequest carries an operationId in the provider spec; the remaining tools reference their
+  method + path.
+tools:
+- name: create_feedback_request
+  description: Create a standard feedback request (survey) for a customer interaction
+  source_operation: openapi/stellaconnect-requests-openapi-original.yml#createRequest
+- name: create_service_recovery_request
+  description: Create a service recovery request tied to an initial feedback request
+  source_operation: openapi/stellaconnect-requests-openapi-original.yml#post /v1/recoveries
+- name: list_coaching_sessions
+  description: List 1:1 coaching sessions, filterable by time or sequence ID
+  source_operation: openapi/stellaconnect-data-return-openapi-original.yml#get /v2/coaching/sessions
+- name: list_qa_reviews
+  description: List QA reviews, filterable by time or sequence ID
+  source_operation: openapi/stellaconnect-data-return-openapi-original.yml#get /v2/qa
+- name: list_qa_audits
+  description: List QA audits, filterable by creation/completion time or sequence ID
+  source_operation: openapi/stellaconnect-data-return-openapi-original.yml#get /v2/qa/audits
+- name: list_qa_calibrations
+  description: List QA calibrations, filterable by creation/completion time or sequence ID
+  source_operation: openapi/stellaconnect-data-return-openapi-original.yml#get /v2/qa/calibrations
+- name: list_feedbacks
+  description: List customer feedback responses (Feedbacks v2), filterable by time or sequence ID
+  source_operation: openapi/stellaconnect-data-return-openapi-original.yml#get /v2/data
+- name: list_employees
+  description: List employees on the Agent Connect platform
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#get /v2/employees
+- name: get_employee
+  description: Retrieve a single employee by id
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#get /v2/employees/{id}
+- name: create_employee
+  description: Create an employee
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#post /v2/employees
+- name: update_employee
+  description: Update an employee
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}
+- name: invite_employee
+  description: Send an employee an invitation to the platform
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#post /v2/employees/invite
+- name: activate_employee
+  description: Activate an employee
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/activate
+- name: deactivate_employee
+  description: Deactivate an employee
+  source_operation: openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/deactivate

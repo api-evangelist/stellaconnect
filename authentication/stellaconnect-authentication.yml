@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+docs: https://docs.medallia.com/en/agent-connect/api/authentication
+source: openapi/stellaconnect-data-return-openapi-original.yml, openapi/stellaconnect-requests-openapi-original.yml,
+  openapi/stellaconnect-user-management-openapi-original.yml
+notes: >-
+  Each Agent Connect client is issued two API keys — one test key and one production key — generated
+  on the Integrations settings page (Settings > Integrations) inside Agent Connect. All requests must
+  be made over HTTPS. The Requests API (/v1/requests, /v1/recoveries) authenticates with the x-api-key
+  header alone. The Data Return and User Management APIs additionally require a JSON Web Token, signed
+  with the company's API secret using HMAC SHA256 and containing a valid iat claim, sent in the
+  Authorization header alongside the x-api-key header.
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyInHeader
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Agent Connect API key (test or production), issued per client on the Integrations settings
+    page.
+  sources:
+  - openapi/stellaconnect-data-return-openapi-original.yml
+  - openapi/stellaconnect-requests-openapi-original.yml
+  - openapi/stellaconnect-user-management-openapi-original.yml
+- name: JwtAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: JWT signed with the company API secret using HMAC SHA256, containing a valid iat claim,
+    provided via the Authorization header. Required for User Management and Data Return endpoints, not
+    for Feedback and service recovery requests.
+  sources:
+  - openapi/stellaconnect-data-return-openapi-original.yml
+  - openapi/stellaconnect-user-management-openapi-original.yml

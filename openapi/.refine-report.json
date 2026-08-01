@@ -1,0 +1,24 @@
+{
+  "provider": "stellaconnect",
+  "sources": [
+    "stellaconnect-coaching-api-openapi.yml",
+    "stellaconnect-data-api-openapi.yml",
+    "stellaconnect-employees-api-openapi.yml",
+    "stellaconnect-qa-api-openapi.yml",
+    "stellaconnect-recoveries-api-openapi.yml",
+    "stellaconnect-requests-api-openapi.yml"
+  ],
+  "outputs": [
+    "stellaconnect-coaching-api-openapi.yml",
+    "stellaconnect-data-api-openapi.yml",
+    "stellaconnect-employees-api-openapi.yml",
+    "stellaconnect-qa-api-openapi.yml",
+    "stellaconnect-recoveries-api-openapi.yml",
+    "stellaconnect-requests-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

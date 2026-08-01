@@ -1,0 +1,1342 @@
+openapi: 3.0.0
+info:
+  title: Agent Connect API
+  description: Agent Connect API
+  termsOfService: https://medallia.com/about/legal/terms/api
+  version: 1.0.0
+servers:
+- url: https://{subdomain}.api.stellaconnect.net
+  variables:
+    subdomain:
+      description: Subdomain for the Agent Connect API
+      default: subdomain
+security:
+- ApiKeyInHeader: []
+  JwtAuth: []
+paths:
+  /v2/coaching/sessions:
+    get:
+      summary: 1:1 Coaching Sessions
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request Coaching Sessions created after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request Coaching Sessions created before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: shared_at_gte
+        in: query
+        description: Request Coaching Sessions completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: shared_at_lte
+        in: query
+        description: Request Coaching Sessions completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request Coaching Sessions after the specified Sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of 1:1 Coaching Sessions.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_CoachingSessions'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+  /v2/qa:
+    get:
+      summary: QA Reviews
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request reviews completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request reviews completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request reviews after the specified sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Reviews.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QAReviews'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+  /v2/qa/audits:
+    get:
+      summary: QA Audits
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request QA Audits created after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request QA Audits created before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_gte
+        in: query
+        description: Request QA Audits completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_lte
+        in: query
+        description: Request QA Audits completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request QA Audits after the specified Sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Audits.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QAAudits'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+  /v2/qa/calibrations:
+    get:
+      summary: QA Calibrations
+      parameters:
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      - name: created_at_gte
+        in: query
+        description: Request Calibrations created after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: Request Calibrations created before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_gte
+        in: query
+        description: Request Calibrations completed after or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: completed_at_lte
+        in: query
+        description: Request Calibrations completed before or at the specified date and time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: after
+        in: query
+        description: Request Calibrations after the specified Sequence ID
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxLength: 1024
+          type: string
+        example: '1000'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of QA Calibrations.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_QACalibrations'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+  /v2/data:
+    get:
+      summary: Feedbacks v2
+      parameters:
+      - name: created_at_gte
+        in: query
+        description: A filter for interactions created at or after the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: created_at_lte
+        in: query
+        description: A filter for interactions created at or before the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: responded_at_gte
+        in: query
+        description: A filter for interactions responded at or after the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: responded_at_lte
+        in: query
+        description: A filter for interactions responded at or before the specified date/time
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+        example: '2025-12-20T00:00:00-05:00'
+      - name: stream
+        in: query
+        description: Enables HTTP streaming (defaults to false)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+        example: 'false'
+      - name: limit
+        in: query
+        description: Specify the maximum number of interactions to be returned in a single request (defaults
+          to 1000). See the 'Filter by time or sequence' article to learn more.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: '1000'
+      - name: after
+        in: query
+        description: A filter for interactions with Sequence IDs higher than the number provided (non-inclusive)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: '1000'
+      - name: include_recovery
+        in: query
+        description: Include Service Recovery interactions in returned data (defaults to false)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+        example: 'false'
+      - name: Authorization
+        in: header
+        description: Token
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your token here]'
+      - name: x-api-key
+        in: header
+        description: Production API Key
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        example: '[insert your API key here]'
+      responses:
+        '200':
+          description: For a 200 response code, the response body contains an array of Feedback records.
+          headers:
+            Content-Type:
+              style: simple
+              explode: false
+              schema:
+                type: string
+              example: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseBodyDataReturn_FeedbacksV2'
+        '403':
+          description: Forbidden — The request was denied due to an authentication failure.
+        '500':
+          description: Internal Server Error — The server encountered an unexpected condition that prevented
+            it from fulfilling the request. File a Support ticket if this error is reproducible.
+components:
+  schemas:
+    ResponseBodyDataReturn_FeedbacksV2:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The interaction's unique identifier within Agent Connect's system
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the interaction
+        parent_uuid:
+          type: string
+          description: The UUID of the parent survey (only present for Service Recovery surveys)
+        is_recovery:
+          type: boolean
+          description: A flag to indicate whether the interaction is a Service Recovery survey
+        branding:
+          type: string
+          description: The interaction's branding subdomain
+        channel:
+          type: string
+          description: The interaction's channel
+        ext_interaction_id:
+          type: string
+          description: The client-supplied Interaction ID from the originating system
+        language:
+          type: string
+          description: The language used for the customer survey (such as 'en', 'es', etc.)
+        survey_id:
+          type: integer
+          description: The ID of the survey template used for the customer survey
+        survey_name:
+          type: string
+          description: The name of the survey template
+        tags:
+          type: array
+          description: 'An array of client-supplied tags associated with the interaction. Note: Values
+            have a maximum limit of 2,000 characters; any payload exceeding this will be truncated by
+            the server to the first 2,000 characters.'
+          items:
+            type: string
+        request_created_at:
+          type: string
+          description: The date and time the interaction was entered into Agent Connect
+          format: date-time
+        request_delivery_status:
+          type: string
+          description: The status of the customer survey
+        request_sent_at:
+          type: string
+          description: The date and time the customer survey was sent
+          format: date-time
+        requested_via:
+          type: string
+          description: The type of request; will be 'manual' or 'API'
+        response_received_at:
+          type: string
+          description: The date and time the customer survey was received
+          format: date-time
+        reward_eligible:
+          type: boolean
+          description: A flag to indicate whether the interaction is eligible for a reward
+        reward_name:
+          type: string
+          description: The name of the reward, if applicable
+        marketing:
+          type: object
+          properties:
+            custom_link_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a custom link
+            custom_link_initiated:
+              type: boolean
+              description: A flag to indicate whether the custom link was clicked
+            facebook_follow_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a Facebook follow
+            facebook_follow_initiated:
+              type: boolean
+              description: A flag to indicate whether the Facebook follow was clicked
+            facebook_share_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for a Facebook share
+            facebook_share_initiated:
+              type: boolean
+              description: A flag to indicate whether the Facebook share was clicked
+            twitter_follow_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for an X/Twitter follow
+            twitter_follow_initiated:
+              type: boolean
+              description: A flag to indicate whether the X/Twitter follow was clicked
+            twitter_share_eligible:
+              type: boolean
+              description: A flag to indicate whether the interaction was eligible for an X/Twitter share
+            twitter_share_initiated:
+              type: boolean
+              description: A flag to indicate whether the X/Twitter share was clicked
+          additionalProperties: false
+          description: Details about the marketing features involved in the interaction
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the employee
+            email:
+              type: string
+              description: Email address of the employee
+            first_name:
+              type: string
+              description: First name of the employee
+            last_name:
+              type: string
+              description: Last name of the employee
+          additionalProperties: false
+          description: Details about the employee involved in the interaction
+        team_leader:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the team leader
+            full_name:
+              type: string
+              description: Full name of the team leader
+          additionalProperties: false
+          description: Details about the team leader of the employee involved in the interaction
+        customer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the customer
+            email:
+              type: string
+              description: Email address of the customer
+            full_name:
+              type: string
+              description: Full name of the customer
+          additionalProperties: false
+          description: Details about the customer involved in the interaction
+        custom_properties:
+          type: object
+          description: An object containing the interaction’s custom properties and mapped custom properties
+        answers:
+          type: object
+          properties:
+            question_id:
+              type: string
+              description: The System ID of the question associated with the answer
+            question_text:
+              type: string
+              description: The English template for the question text
+            comment:
+              type: string
+              description: Optional comment from the customer
+            selected_options:
+              type: object
+              properties:
+                option_id:
+                  type: string
+                  description: The System ID of the option
+                option_text:
+                  type: string
+                  description: The option’s label in English
+                integer_value:
+                  type: integer
+                  description: An integer value associated with options of certain types of questions
+              additionalProperties: false
+              description: An object containing the options selected by the customer keyed by the option’s
+                system ID.
+          additionalProperties: false
+          description: 'An object containing the customer’s answers to the survey keyed by the question.
+
+
+            The keys are immutable, human-readable strings which uniquely identify the questions. For
+            example, the answer to an agent star rating question might appear under ''agent_star_rating''.
+            Common question identifiers are ''agent_star_rating'', ''nps'', ''fcr'', ''areas_of_excellence'',
+            ''areas_of_improvement'', and ''rewards''.
+
+
+            Questions which were seen by the customer but not answered appear in this object as answers
+            with no selected options. Questions which were not seen by the customer do not appear in this
+            object.
+
+
+            Each answer object contains attributes from the question and the answer.'
+      additionalProperties: false
+    ResponseBodyDataReturn_CoachingSessions:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this Coaching Session
+        created_at:
+          type: string
+          description: The time the Coaching Session was created
+          format: date-time
+        shared_at:
+          type: string
+          description: The time the Coaching Session was shared by the coach
+          format: date-time
+        reshared_at:
+          type: string
+          description: The time the Coaching Session recap was sent by the coach
+          format: date-time
+        archived:
+          type: boolean
+          description: A flag to indicate whether the Coaching Session has been archived
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the Coaching Session
+        coach:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the employee who started the Coaching Session
+            email:
+              type: string
+              description: Email address of the coach employee who started the Coaching Session
+            first_name:
+              type: string
+              description: First name of the coach employee who started the Coaching Session
+            last_name:
+              type: string
+              description: Last name of the coach employee who started the Coaching Session
+          additionalProperties: false
+          description: Details about the coach employee who started the Coaching Session
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the coachee
+            email:
+              type: string
+              description: Email address of the coachee
+            first_name:
+              type: string
+              description: First name of the coachee
+            last_name:
+              type: string
+              description: Last name of the coachee
+            team_leader:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Client-supplied custom ID of the coachee’s team leader
+                email:
+                  type: string
+                  description: Email address of the coachee’s team leader
+                first_name:
+                  type: string
+                  description: First name of the coachee’s team leader
+                last_name:
+                  type: string
+                  description: Last name of the coachee’s team leader
+              additionalProperties: false
+              description: Details about the coachee’s team leader
+          additionalProperties: false
+          description: Details about the coachee
+        title:
+          type: string
+          description: Title of the Coaching Session
+        private:
+          type: boolean
+          description: True if the Coaching Session was marked as Private
+        created_action_items:
+          type: object
+          properties:
+            text:
+              type: string
+              description: Text of the Action Item
+            category:
+              type: string
+              description: Category of the Action Item
+            status:
+              type: string
+              description: Status of the Action Item (open/completed)
+            created_at:
+              type: string
+              description: The time the Action Item was created
+              format: date-time
+            completed_at:
+              type: string
+              description: The time the Action Item was completed
+              format: date-time
+            due_date:
+              type: string
+              description: Due date set for the Action Item
+              format: date-time
+            owner:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Client-supplied custom ID of the Action Item owner
+                email:
+                  type: string
+                  description: Email address of the Action Item owner
+                first_name:
+                  type: string
+                  description: First name of the Action Item owner
+                last_name:
+                  type: string
+                  description: Last name of the Action Item owner
+              additionalProperties: false
+              description: Details about the Action Item owner
+          additionalProperties: false
+          description: Details about Action Items created during the Coaching Session
+        completed_action_items:
+          type: object
+          properties:
+            text:
+              type: string
+              description: Text of the Action Item
+            category:
+              type: string
+              description: Category of the Action Item
+            status:
+              type: string
+              description: Status of the Action Item (open/completed)
+            created_at:
+              type: string
+              description: The time the Action Item was created
+              format: date-time
+            completed_at:
+              type: string
+              description: The time the Action Item was completed
+              format: date-time
+            due_date:
+              type: string
+              description: Due date set for the Action Item
+              format: date-time
+            owner:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Client-supplied custom ID of the Action Item owner
+                email:
+                  type: string
+                  description: Email address of the Action Item owner
+                first_name:
+                  type: string
+                  description: First name of the Action Item owner
+                last_name:
+                  type: string
+                  description: Last name of the Action Item owner
+              additionalProperties: false
+              description: Details about the Action Item owner
+          additionalProperties: false
+          description: Details about Action Items completed during the Coaching Session (will be empty
+            for Coaching Sessions completed prior to October, 2025)
+        kudos:
+          type: object
+          properties:
+            text:
+              type: string
+              description: Text of the Kudos
+            created_at:
+              type: string
+              description: The time the Kudos was created
+              format: date-time
+          additionalProperties: false
+          description: Details about kudos attached to the Coaching Session
+        metric_attachments:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the metric added to the session
+            score:
+              type: number
+              description: The score of the metric added to the session
+            start_date:
+              type: string
+              description: The start date of the metric score added to the session
+              format: date-time
+            end_date:
+              type: string
+              description: The end date of the metric score added to the session
+              format: date-time
+            added_at:
+              type: string
+              description: The date the metric was added to the session
+              format: date-time
+            notes:
+              type: string
+              description: Notes added to the metric within the Coaching Session
+          additionalProperties: false
+          description: Details about metrics attached to the Coaching Session
+        feedback_attachments:
+          type: object
+          properties:
+            uuid:
+              type: string
+              description: The interaction's unique identifier within Agent Connect's system
+            interaction_id:
+              type: string
+              description: External Interaction ID of the feedback record added to the session
+            added_at:
+              type: string
+              description: The date the Feedback record was added to the Coaching Session
+              format: date-time
+            notes:
+              type: string
+              description: Notes from the Feedback record added to the Coaching Session
+          additionalProperties: false
+          description: Details about Feedback records attached to the Coaching Session
+        qa_review_attachments:
+          type: object
+          properties:
+            uuid:
+              type: string
+              description: The universal unique identifier for this review
+            interaction_id:
+              type: string
+              description: External Interaction ID
+            added_at:
+              type: string
+              description: The date the QA Review was added to the Coaching Session
+              format: date-time
+            notes:
+              type: string
+              description: Notes from the QA Review added to the Coaching Session
+          additionalProperties: false
+          description: Details about QA Reviews attached to the Coaching Session
+      additionalProperties: false
+    ResponseBodyDataReturn_QAAudits:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this QA Audit
+        audit_type:
+          type: string
+          description: The type of audit performed (Audit or Calibration Audit)
+        interaction_id:
+          type: string
+          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk,
+            etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        completed_at:
+          type: string
+          description: The time the audit was completed
+          format: date-time
+        count_toward_score:
+          type: boolean
+          description: Indicates whether the underlying QA Review counts toward the agent's overall score
+            metric
+        score:
+          type: integer
+          description: Score of the audit (in percentage points) if counted toward score
+        autofailed:
+          type: boolean
+          description: Indicates whether the audit was automatically failed
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the audit
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the scorecard associated with the original review
+            archived_at:
+              type: string
+              description: Archived date of the scorecard associated with the original review, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used for the underlying QA Review
+        reviewer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the reviewer
+            email:
+              type: string
+              description: Email address of the reviewer
+            first_name:
+              type: string
+              description: First name of the reviewer
+            last_name:
+              type: string
+              description: Last name of the reviewer
+            team_leader:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Client-supplied custom ID of the reviewer’s team leader
+                email:
+                  type: string
+                  description: Email address of the reviewer’s team leader
+                first_name:
+                  type: string
+                  description: First name of the reviewer’s team leader
+                last_name:
+                  type: string
+                  description: Last name of the reviewer’s team leader
+              additionalProperties: false
+              description: Details about the reviewer’s team leader
+          additionalProperties: false
+          description: Details about the reviewer being audited
+        groups:
+          type: array
+          description: List of the group memberships of the reviewer when the audit was created
+          items:
+            type: string
+        auditor:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: Client-supplied custom ID of the auditor
+            email:
+              type: string
+              description: Email address of the auditor
+            first_name:
+              type: string
+              description: First name of the auditor
+            last_name:
+              type: string
+              description: Last name of the auditor
+          additionalProperties: false
+          description: Details about the auditor
+        questions:
+          type: object
+          properties:
+            question_text:
+              type: string
+              description: Text of the audit question
+            section:
+              type: string
+              description: Section of the audit question
+            section_weight:
+              type: integer
+              description: Weight of the section
+            comment:
+              type: string
+              description: Comments provided by the auditor
+            option_text:
+              type: string
+              description: The selected answer to the question (will be empty if no answer was selected)
+          additionalProperties: false
+          description: Details about the questions on the audit scorecard
+        qa_review:
+          type: object
+          description: The target QA Review of this audit, containing all fields defined in the QA Review
+            payload
+      additionalProperties: false
+    ResponseBodyDataReturn_QACalibrations:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this Calibration
+        alignment_score:
+          type: integer
+          description: The alignment score derived from all participants' input
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the Calibration
+        started_by:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of the user that started the Calibration
+            email:
+              type: string
+              description: Email address of the user that started the Calibration
+            first_name:
+              type: string
+              description: First name of the user that started the Calibration
+            last_name:
+              type: string
+              description: Last name of the user that started the Calibration
+          additionalProperties: false
+          description: Details about the user that started the Calibration
+        meeting_date:
+          type: string
+          description: The date of the Calibration
+          format: date-time
+        interaction_id:
+          type: string
+          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk,
+            etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        participants:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of an individual participant
+            email:
+              type: string
+              description: Email address of an individual participant
+            first_name:
+              type: string
+              description: First name of an individual participant
+            last_name:
+              type: string
+              description: Last name of an individual participant
+          additionalProperties: false
+          description: Details about the participants in the Calibration
+        notes:
+          type: string
+          description: Any notes attached to the Calibration
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the scorecard used by the participants
+            archived_at:
+              type: string
+              description: Archived date of the scorecard used by the participants, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used by the participants
+        completed_at:
+          type: string
+          description: The time the session was completed
+          format: date-time
+        created_at:
+          type: string
+          description: The time the session was created
+          format: date-time
+        questions:
+          type: object
+          properties:
+            question_text:
+              type: string
+              description: Text of a specific question on the scorecard
+            section:
+              type: string
+              description: Section in which a specific question was contained
+            section_weight:
+              type: integer
+              description: The assigned weight of the section in which a specific question was contained,
+                if applicable
+            question_alignment_score:
+              type: integer
+              description: The alignment score derived from all participants' input on a specific question
+            selected_option:
+              type: object
+              properties:
+                qa_option_id:
+                  type: string
+                  description: The ID of the selected answer to the question (will be empty if no answer
+                    was selected)
+                option_text:
+                  type: string
+                  description: The text of the selected answer to the question (will be empty if no answer
+                    was selected)
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+              additionalProperties: false
+              description: Details about the option selected by the participant
+            options:
+              type: object
+              properties:
+                option_text:
+                  type: string
+                  description: The text of a specific answer choice
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+                participants:
+                  type: object
+                  properties:
+                    employee:
+                      type: object
+                      properties:
+                        custom_id:
+                          type: string
+                          description: The ID of a participant who selected a specific answer
+                        email:
+                          type: string
+                          description: Email address of a participant who selected a specific answer
+                        first_name:
+                          type: string
+                          description: First name of a participant who selected a specific answer
+                        last_name:
+                          type: string
+                          description: Last name of a participant who selected a specific answer
+                        comment:
+                          type: string
+                          description: Comment left by an individual participant who selected a specific
+                            answer, if applicable
+                      additionalProperties: false
+                      description: Details about the employee who selected a specific answer
+                  additionalProperties: false
+                  description: An array of employees who participated in the Calibration
+              additionalProperties: false
+              description: Details about the available options
+          additionalProperties: false
+          description: Details about the questions on the scorecard
+      additionalProperties: false
+    ResponseBodyDataReturn_QAReviews:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this review
+        interaction_id:
+          type: string
+          description: The client supplied external interaction ID from the originating system (CRM, helpdesk,
+            etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        created_at:
+          type: string
+          description: The time the review was created
+          format: date-time
+        completed_at:
+          type: string
+          description: The time the review was completed
+          format: date-time
+        count_toward_score:
+          type: boolean
+          description: Indicates whether the QA Review counts toward the agent's overall score metric
+        score:
+          type: integer
+          description: Score (in percentage points) of the review, if count_toward_score is true
+        autofailed:
+          type: boolean
+          description: Indicates whether the QA Review was automatically failed
+        solicitation_id:
+          type: string
+          description: The universal unique ID of the associated solicitation for the review
+        sequence_id:
+          type: integer
+          description: The sequence ID of the review
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Scorecard name associated with the review
+            archived_at:
+              type: string
+              description: Archived date of the scorecard associated with the review, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used for the QA Review
+        employee:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The client supplied custom ID of the reviewed employee
+            email:
+              type: string
+              description: Email address of the reviewed employee
+            first_name:
+              type: string
+              description: First name of the reviewed employee
+            last_name:
+              type: string
+              description: Last name of the reviewed employee
+            team_leader:
+              type: object
+              properties:
+                custom_id:
+                  type: string
+                  description: Custom ID of the team leader of the reviewed employee
+                email:
+                  type: string
+                  description: Email address of the team leader of the reviewed employee
+                first_name:
+                  type: string
+                  description: First name of the team leader of the reviewed employee
+                last_name:
+                  type: string
+                  description: Last name of the team leader of the reviewed employee
+              additionalProperties: false
+              description: Details about the team leader of the employee
+          additionalProperties: false
+          description: Details about the reviewed employee
+        groups:
+          type: array
+          description: List of the group memberships of the employee when the review was created
+          items:
+            type: string
+        reviewer:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The client supplied custom ID of the reviewer employee
+            email:
+              type: string
+              description: Email address of the reviewer employee
+            first_name:
+              type: string
+              description: First name of the reviewer employee
+            last_name:
+              type: string
+              description: Last name of the reviewer employee
+          additionalProperties: false
+          description: Details about the reviewer of the QA Review
+        questions:
+          type: object
+          properties:
+            <question_id>:
+              type: object
+              properties:
+                question_text:
+                  type: string
+                  description: Text of the review question
+                section:
+                  type: string
+                  description: Section of the review question
+                section_weight:
+                  type: integer
+                  description: Weight of the section
+                comment:
+                  type: string
+                  description: Comments provided by the reviewer
+                selected_options:
+                  type: object
+                  properties:
+                    <option_id>:
+                      type: object
+                      properties:
+                        option_text:
+                          type: string
+                          description: The selected answer to the question; will be empty if no answer
+                            was selected
+                        score:
+                          type: integer
+                          description: Point value of the selected answer
+                      additionalProperties: false
+                      description: Details about a specific option
+                  additionalProperties: false
+                  description: Details about the options selected by the reviewer
+              additionalProperties: false
+              description: Details about a specific question on the scorecard
+          additionalProperties: false
+          description: Details about the questions on the scorecard
+      additionalProperties: false
+  securitySchemes:
+    ApiKeyInHeader:
+      type: apiKey
+      name: x-api-key
+      in: header
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

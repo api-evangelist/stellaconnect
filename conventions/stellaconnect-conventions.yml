@@ -1,0 +1,62 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.medallia.com/en/agent-connect/api/authentication,
+  https://docs.medallia.com/en/agent-connect/api/usage-limits,
+  https://docs.medallia.com/en/agent-connect/api/data-return (Filter by time or sequence),
+  derived from the three harvested OpenAPI specs
+description: >-
+  Cross-cutting request/response semantics of the Medallia Agent Connect (Stella Connect) API:
+  API-key + JWT authentication, sequence-based incremental pagination on the Data Return endpoints,
+  custom-properties metadata on feedback requests, URI-path versioning, plain HTTP status errors,
+  and per-key rate limiting.
+
+base_url: https://api.stellaconnect.net
+api_style: REST over HTTPS, JSON requests and responses
+
+authentication:
+  scheme: x-api-key header (test or production API key); Data Return and User Management endpoints
+    additionally require an HMAC SHA256-signed JWT with a valid iat claim in the Authorization header.
+  docs: https://docs.medallia.com/en/agent-connect/api/authentication
+  detail: authentication/stellaconnect-authentication.yml
+
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented; the Requests API accepts an ext_interaction_id
+    supplied by the calling system, but it is not required to be unique and does not deduplicate
+    requests.
+
+pagination:
+  style: sequence-cursor
+  request_params:
+    after: return records after the specified sequence ID (Data Return endpoints)
+    created_at_gte/created_at_lte: ISO 8601 date-time window filters
+    completed_at_gte/completed_at_lte: completion-time window filters (QA audits/calibrations)
+    responded_at_gte/responded_at_lte: response-time window filters (Feedbacks v2)
+  response_fields:
+    sequence_id: monotonic cursor on each record, passed back via `after` for incremental export
+  docs: https://docs.medallia.com/en/agent-connect/api/data-return/filter-by-time-or-sequence
+
+field_expansion:
+  supported: false
+
+metadata:
+  supported: true
+  mechanism: custom_properties object on feedback requests — single-level string key/value pairs,
+    values truncated at 2,000 characters; used to filter responses and drive QA selection.
+
+request_tracing:
+  supported: false
+  notes: No request-id header is documented.
+
+versioning:
+  scheme: uri-path (v1 Requests, v2 Data Return / User Management)
+  detail: lifecycle/stellaconnect-lifecycle.yml
+
+error_envelope:
+  shape: plain HTTP status responses (400/403/404/422/429/500); no JSON problem envelope documented
+  detail: errors/stellaconnect-problem-types.yml
+
+rate_limits:
+  signaling: 429 Too Many Requests on exceeding 100 requests/minute per API key (Data Return endpoints)
+  detail: rate-limits/stellaconnect-rate-limits.yml

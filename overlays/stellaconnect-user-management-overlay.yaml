@@ -1,0 +1,35 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Agent Connect User Management API
+  version: 1.0.0
+extends: openapi/stellaconnect-user-management-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: stellaconnect
+      harvested: '2026-07-21'
+      source: https://docs.medallia.com/api/api-specification/bd749f40-e1d4-4f64-bea0-4616e5329867
+      docs: https://docs.medallia.com/en/agent-connect/api/user-management
+    x-conventions: conventions/stellaconnect-conventions.yml
+- target: $.paths['/v2/employees'].get
+  update:
+    x-suggested-operationId: listEmployees
+- target: $.paths['/v2/employees'].post
+  update:
+    x-suggested-operationId: createEmployee
+- target: $.paths['/v2/employees/{id}'].get
+  update:
+    x-suggested-operationId: getEmployee
+- target: $.paths['/v2/employees/{id}'].put
+  update:
+    x-suggested-operationId: updateEmployee
+- target: $.paths['/v2/employees/invite'].post
+  update:
+    x-suggested-operationId: inviteEmployee
+- target: $.paths['/v2/employees/{id}/activate'].put
+  update:
+    x-suggested-operationId: activateEmployee
+- target: $.paths['/v2/employees/{id}/deactivate'].put
+  update:
+    x-suggested-operationId: deactivateEmployee

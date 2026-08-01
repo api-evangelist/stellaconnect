@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Agent Connect Data Return API
+  version: 1.0.0
+extends: openapi/stellaconnect-data-return-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: stellaconnect
+      harvested: '2026-07-21'
+      source: https://docs.medallia.com/api/api-specification/94f45278-2a09-4cd9-92a2-3558e593dc32
+      docs: https://docs.medallia.com/en/agent-connect/api/data-return
+    x-rate-limits: rate-limits/stellaconnect-rate-limits.yml
+    x-conventions: conventions/stellaconnect-conventions.yml
+- target: $.paths['/v2/coaching/sessions'].get
+  update:
+    x-suggested-operationId: listCoachingSessions
+- target: $.paths['/v2/qa'].get
+  update:
+    x-suggested-operationId: listQaReviews
+- target: $.paths['/v2/qa/audits'].get
+  update:
+    x-suggested-operationId: listQaAudits
+- target: $.paths['/v2/qa/calibrations'].get
+  update:
+    x-suggested-operationId: listQaCalibrations
+- target: $.paths['/v2/data'].get
+  update:
+    x-suggested-operationId: listFeedbacks

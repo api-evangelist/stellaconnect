@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+skills:
+- file: stellaconnect-trigger-feedback-survey.md
+  name: Trigger a customer feedback survey from any system
+  api: openapi/stellaconnect-requests-openapi-original.yml
+  operations: [createRequest]
+- file: stellaconnect-export-feedback-and-qa-data.md
+  name: Incrementally export feedback, coaching, and QA data
+  api: openapi/stellaconnect-data-return-openapi-original.yml
+  operations: ['get /v2/data', 'get /v2/coaching/sessions', 'get /v2/qa', 'get /v2/qa/audits',
+    'get /v2/qa/calibrations']

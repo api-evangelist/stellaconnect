@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stellaconnect-requests-openapi-original.yml, openapi/stellaconnect-data-return-openapi-original.yml,
+  openapi/stellaconnect-user-management-openapi-original.yml; enriched from
+  https://docs.medallia.com/en/agent-connect/api/usage-limits
+format: http-status
+notes: >-
+  Agent Connect errors are plain HTTP status responses; no application/problem+json (RFC 9457)
+  envelope is documented. Statuses derived from the harvested OpenAPI responses; 429 documented on
+  the usage-limits page for the Data Return endpoints.
+problems:
+- status: 400
+  title: Validation Error
+  detail: The request was invalid. Check the required request parameters and try again.
+  source_operations:
+  - openapi/stellaconnect-requests-openapi-original.yml#post /v1/requests
+  - openapi/stellaconnect-requests-openapi-original.yml#post /v1/recoveries
+- status: 403
+  title: Forbidden
+  detail: The request was denied due to an authentication failure (missing/invalid x-api-key, or
+    missing/invalid JWT on Data Return and User Management endpoints).
+  source_operations:
+  - openapi/stellaconnect-requests-openapi-original.yml#post /v1/requests
+  - openapi/stellaconnect-data-return-openapi-original.yml#get /v2/data
+  - openapi/stellaconnect-user-management-openapi-original.yml#get /v2/employees
+- status: 404
+  title: Not Found
+  detail: The referenced resource (for example an employee id) does not exist.
+  source_operations:
+  - openapi/stellaconnect-user-management-openapi-original.yml#get /v2/employees/{id}
+  - openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/activate
+  - openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/deactivate
+- status: 422
+  title: Unprocessable Entity
+  detail: The employee operation could not be processed with the supplied representation.
+  source_operations:
+  - openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}
+  - openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/activate
+  - openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/deactivate
+- status: 429
+  title: Too Many Requests
+  detail: Returned when the per-API-key rate limit (100 requests/minute on Data Return endpoints)
+    has been exceeded.
+  source_operations:
+  - https://docs.medallia.com/en/agent-connect/api/usage-limits
+- status: 500
+  title: Internal Server Error
+  detail: The server encountered an unexpected condition. File a Support ticket if the error is
+    reproducible.
+  source_operations:
+  - openapi/stellaconnect-requests-openapi-original.yml#post /v1/requests
+  - openapi/stellaconnect-data-return-openapi-original.yml#get /v2/data

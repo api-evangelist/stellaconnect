@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Agent Connect Requests API
+  version: 1.0.0
+extends: openapi/stellaconnect-requests-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: stellaconnect
+      harvested: '2026-07-21'
+      source: https://docs.medallia.com/api/api-specification/e6313940-50ce-452d-b36c-70d77379f256
+      docs: https://docs.medallia.com/en/agent-connect/api/requests
+- target: $.paths['/v1/recoveries'].post
+  update:
+    x-suggested-operationId: createServiceRecoveryRequest
+    description: The provider spec omits an operationId for this operation; suggested id added for
+      tooling that requires one.
+- target: $.info
+  update:
+    x-conventions: conventions/stellaconnect-conventions.yml
+    x-error-catalog: errors/stellaconnect-problem-types.yml

@@ -1,27 +1,218 @@
 aid: stellaconnect
-name: Stellaconnect
-description: 'Stellaconnect is a company surfaced as a portfolio company of norwest-venture-partners and
-  added to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead
-  awaiting the enrichment pipeline.'
+name: Stella Connect (Medallia Agent Connect)
+description: 'Stella Connect, built by StellaService and acquired by Medallia in 2020, is now Medallia
+  Agent Connect — a customer service team platform that pairs real-time customer feedback with agent
+  coaching, quality assurance (QA), and recognition for contact center front-line teams. The product
+  still runs on stellaconnect.net, and its Agent Connect API at api.stellaconnect.net exposes a Requests
+  API for triggering feedback and service recovery surveys from any CRM or helpdesk, a Data Return API
+  for pulling feedback, coaching sessions, QA reviews, audits, and calibrations, and a User Management
+  API for employee lifecycle operations, secured with API keys and HMAC-signed JWTs.'
 url: https://raw.githubusercontent.com/api-evangelist/stellaconnect/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://docs-assets.medallia.com/icons/medallia.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - norwest-venture-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: company
+x-tier-reason: acquired-live-api-surface
+x-status: acquired
+x-acquired-by: medallia
+x-product-name: Medallia Agent Connect
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
-- Company
-- Unknown
-apis: []
+- Customer Service
+- Customer Feedback
+- Quality Assurance
+- Coaching
+- Contact Centers
+- Surveys
+- Customer Experience
+- SaaS
+apis:
+- aid: stellaconnect:stellaconnect-coaching-api
+  name: Stella Connect (Medallia Agent Connect) Coaching API
+  description: >-
+    The Coaching API from Stella Connect (Medallia Agent Connect) — 1 operation(s) for coaching.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Coaching
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-coaching-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
+- aid: stellaconnect:stellaconnect-data-api
+  name: Stella Connect (Medallia Agent Connect) Data API
+  description: The Data API from Stella Connect (Medallia Agent Connect) — 1 operation(s) for data.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
+- aid: stellaconnect:stellaconnect-employees-api
+  name: Stella Connect (Medallia Agent Connect) Employees API
+  description: >-
+    The Employees API from Stella Connect (Medallia Agent Connect) — 5 operation(s) for employees.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Employees
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-employees-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
+- aid: stellaconnect:stellaconnect-qa-api
+  name: Stella Connect (Medallia Agent Connect) Qa API
+  description: The Qa API from Stella Connect (Medallia Agent Connect) — 3 operation(s) for qa.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Qa
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-qa-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
+- aid: stellaconnect:stellaconnect-recoveries-api
+  name: Stella Connect (Medallia Agent Connect) Recoveries API
+  description: >-
+    The Recoveries API from Stella Connect (Medallia Agent Connect) — 1 operation(s) for recoveries.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Recoveries
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-recoveries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
+- aid: stellaconnect:stellaconnect-requests-api
+  name: Stella Connect (Medallia Agent Connect) Requests API
+  description: >-
+    The Requests API from Stella Connect (Medallia Agent Connect) — 1 operation(s) for requests.
+  humanURL: https://docs.medallia.com/en/agent-connect/api/requests
+  baseURL: https://api.stellaconnect.net
+  tags:
+  - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/stellaconnect-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/requests
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/data-return
+  - type: Documentation
+    url: https://docs.medallia.com/en/agent-connect/api/user-management
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/stellaconnect-agentic-access.yml
+- type: DomainSecurity
+  url: security/stellaconnect-domain-security.yml
 - type: Website
   url: https://stellaconnect.com
+- type: Documentation
+  url: https://docs.medallia.com/en/agent-connect
+- type: APIReference
+  url: https://docs.medallia.com/en/agent-connect/api
+- type: GettingStarted
+  url: https://docs.medallia.com/en/agent-connect/api/requests/request-from-any-system
+- type: Authentication
+  url: authentication/stellaconnect-authentication.yml
+- type: RateLimits
+  url: rate-limits/stellaconnect-rate-limits.yml
+- type: ChangeLog
+  url: changelog/stellaconnect-changelog.yml
+- type: StatusPage
+  url: https://agentconnect.status.medallia.com
+- type: Lifecycle
+  url: lifecycle/stellaconnect-lifecycle.yml
+- type: Support
+  url: https://docs.medallia.com/en/agent-connect/technical-support
+- type: GitHubOrganization
+  url: https://github.com/stellaservice
+- type: Login
+  url: https://stellaconnect.net
+- type: TermsOfService
+  url: https://medallia.com/about/legal/terms/api
+- type: PrivacyPolicy
+  url: https://www.medallia.com/legal/privacy-policy/
+- type: Compliance
+  url: https://docs.medallia.com/en/agent-connect/security-policies-and-controls/policies-compliance-and-certification
+- type: Conformance
+  url: conformance/stellaconnect-conformance.yml
+- type: ErrorCatalog
+  url: errors/stellaconnect-problem-types.yml
+- type: Conventions
+  url: conventions/stellaconnect-conventions.yml
+- type: Sandbox
+  url: sandbox/stellaconnect-sandbox.yml
+- type: WellKnown
+  url: well-known/stellaconnect-well-known.yml
+- type: LLMsTxt
+  url: llms/stellaconnect-llms.txt
+- type: MCPServer
+  url: mcp/stellaconnect-mcp.yml
+- type: DataModel
+  url: data-model/stellaconnect-data-model.yml
+- type: Overlay
+  url: overlays/stellaconnect-requests-overlay.yaml
+- type: Overlay
+  url: overlays/stellaconnect-data-return-overlay.yaml
+- type: Overlay
+  url: overlays/stellaconnect-user-management-overlay.yaml
+- type: AgentSkill
+  name: Trigger a customer feedback survey from any system
+  url: skills/stellaconnect-trigger-feedback-survey.md
+- type: AgentSkill
+  name: Incrementally export feedback, coaching, and QA data
+  url: skills/stellaconnect-export-feedback-and-qa-data.md
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 23
+  pass: local-v1

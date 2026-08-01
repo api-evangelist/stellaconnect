@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.medallia.com/en/agent-connect/api/authentication
+description: >-
+  Agent Connect separates test and production traffic at the credential level: each client is issued
+  two API keys — one test key and one production key — generated and retrieved on the Integrations
+  settings page (Settings > Integrations) inside Agent Connect. Integration guides (for example the
+  Zendesk survey integration) use the test API key against the same api.stellaconnect.net host while
+  validating an integration before switching to the production key.
+modes:
+  test:
+    credential: Test API Key (Settings > Integrations)
+    host: https://api.stellaconnect.net
+  production:
+    credential: Production API Key (Settings > Integrations)
+    host: https://api.stellaconnect.net
+test_values: []
+notes: No magic test identifiers, fixtures, or time-simulation tooling are published; test-mode
+  separation is entirely key-based.

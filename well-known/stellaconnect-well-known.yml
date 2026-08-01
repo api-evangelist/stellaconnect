@@ -1,0 +1,46 @@
+generated: '2026-07-21'
+method: searched
+notes: >-
+  No /.well-known/ discovery documents are published on any Stella Connect host. stellaconnect.com
+  301-redirects to www.medallia.com; stellaconnect.net is the authenticated product host (302s
+  redirect to login, 401s on static probes); api.stellaconnect.net returns 404 for all well-known
+  paths. No files saved (no 200 responses).
+hosts:
+- host: https://stellaconnect.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://stellaconnect.net
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 302
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+  - path: /.well-known/api-catalog
+    status: 302
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /llms.txt
+    status: 401
+- host: https://api.stellaconnect.net
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
