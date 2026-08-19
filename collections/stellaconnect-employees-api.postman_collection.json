@@ -1,0 +1,2907 @@
+{
+  "item": [
+    {
+      "id": "ed72b188-31fe-498b-9ba5-5e3052bba4ab",
+      "name": "Employees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef18b6a2-2eea-403e-b6aa-3765211cdb9b",
+          "name": "Activate Employee",
+          "request": {
+            "name": "Activate Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees",
+                ":id",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Email or custom ID"
+                },
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd6990f7-92ac-476f-a2cc-4f2f8ae6d01d",
+              "name": "A 200 response code indicates that the employee has been activated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom ID"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "339c318a-97af-4bc3-a900-7bd49307b448",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom ID"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2bea4f47-eb19-4e5b-8bae-6bd534641851",
+              "name": "Not Found — The employee was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom ID"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4447ba7c-5b4b-4648-b89f-02cf33563a48",
+              "name": "Unprocessable Entity — The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom ID"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "138a412a-fae7-4377-af20-796ba0b09672",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom ID"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37e887f5-e06b-4627-af02-ee1c570dcf1b",
+          "name": "Employee",
+          "request": {
+            "name": "Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Email or custom_employee_id of the employee"
+                },
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5167108f-db94-43f5-96fc-c05fa3405dee",
+              "name": "For a 200 response code, the response body contains an object describing the employee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"custom_employee_id\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"team_leader_id\": 6382,\n  \"team_leader_email\": \"string\",\n  \"role\": \"string\",\n  \"license_type\": \"string\",\n  \"channels\": \"string\",\n  \"employment_status\": \"string\",\n  \"start_date\": \"string\",\n  \"hometown\": \"string\",\n  \"state_or_country\": \"string\",\n  \"profile_text\": \"string\",\n  \"image\": \"string\",\n  \"groups\": [\n    \"Support\",\n    \"Tier 2\",\n    \"Admins\"\n  ],\n  \"manage_team\": true,\n  \"last_active\": \"2026-03-15T14:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d767ffdc-7ff6-4bfb-977b-bb5432ba4fd3",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "900c0308-ca9d-415a-9a6d-5d63be35d561",
+              "name": "Not Found — The employee was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33f69cad-7f2d-4c4f-adc1-1e32c483ea88",
+              "name": "Unprocessable Entity — The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35a26b65-ba17-4a27-b32a-a4e91c5e7687",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77d7b0c2-1913-444c-860b-aefe4009a4d4",
+          "name": "Update Employee",
+          "request": {
+            "name": "Update Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Email or custom_employee_id of the employee"
+                },
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a99f782a-e478-476f-ae7d-1e6004d65490",
+              "name": "For a 200 response code, the response body contains an object describing the employee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"custom_employee_id\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"temporary_password\": \"string\",\n  \"team_leader_id\": \"string\",\n  \"team_leader_email\": \"string\",\n  \"role\": \"string\",\n  \"manage_team\": true,\n  \"license_type\": \"string\",\n  \"channels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"employment_status\": \"string\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"string\",\n  \"state_or_country\": \"string\",\n  \"profile_text\": \"string\",\n  \"image\": \"string\",\n  \"reporting_groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e923d23a-eeab-41c7-a841-681bd0090578",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01eadadf-d234-4141-8fdd-6dc96cdcc6fc",
+              "name": "Not Found — The employee was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "981507f3-ecf7-43c2-80d1-6a4847a91b8d",
+              "name": "Unprocessable Entity — The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea6e3c53-7882-4332-b403-98e2444758e9",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d105ee09-cd7e-4c65-b9e0-ae6b7c212317",
+          "name": "Employees",
+          "request": {
+            "name": "Employees",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "external_id",
+                  "value": "<string>",
+                  "description": "(Optional) External ID of the last employee in the current paginated response. This is used to build the next page of employees."
+                },
+                {
+                  "disabled": false,
+                  "key": "number_of_employees",
+                  "value": "<string>",
+                  "description": "(Optional) Sets the amount of employees that will be returned during each request. Default = 100. Max = 500."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Optional) Filters the users returned based on their status. Options are: active, deactivated, pending review, confirmed, unapproved, created."
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_status",
+                  "value": "<string>",
+                  "description": "(Optional) Filters the users returned based on their employment status. Options are: full-time, part-time, temp."
+                },
+                {
+                  "disabled": false,
+                  "key": "team_leader_ids",
+                  "value": "<string>",
+                  "description": "(Optional) Filters the users returned based on team leader. Use the team leader's numerical ID as the value. Add multiple parameters to return employees from multiple teams."
+                },
+                {
+                  "disabled": false,
+                  "key": "reporting_groups",
+                  "value": "<string>",
+                  "description": "(Optional) Filters the users returned based on reporting group. Use the reporting group's name as the value. Add multiple parameters to return employees from multiple reporting groups."
+                },
+                {
+                  "disabled": false,
+                  "key": "roles",
+                  "value": "<string>",
+                  "description": "(Optional) Filters the users returned based on role. Use the role's name as the value. Add multiple parameters to return employees from multiple roles."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Optional) Returns employees that partially match the specified value. This will initiate a search by the employee's name, email address, and custom employee ID."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a91299a-023b-42e0-b59f-16f24113b044",
+              "name": "For a 200 response code, the response body contains an array of employees.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "external_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "number_of_employees",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_leader_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reporting_groups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roles",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employees\": {\n    \"email\": \"string\",\n    \"custom_employee_id\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"team_leader_id\": 6825,\n    \"team_leader_email\": \"string\",\n    \"role\": \"string\",\n    \"license_type\": \"string\",\n    \"channels\": [\n      \"phone\",\n      \"chat\",\n      \"email\"\n    ],\n    \"employment_status\": \"string\",\n    \"start_date\": \"2026-03-15\",\n    \"hometown\": \"string\",\n    \"state_or_country\": \"string\",\n    \"profile_text\": \"string\",\n    \"image\": \"https://<subdomain>.stellaconnect.net/api/v2/employees/123/image.png\",\n    \"groups\": [\n      \"Support\",\n      \"Tier 2\",\n      \"Admins\"\n    ],\n    \"manage_team\": true,\n    \"last_active\": \"2026-03-15T14:30:00Z\"\n  },\n  \"meta\": {\n    \"next_page\": \"https://<subdomain>.stellaconnect.net/api/v2/employees?after=<id>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "525e0b4d-3101-4938-90ad-4c447dba1ba6",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "external_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "number_of_employees",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_leader_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reporting_groups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roles",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7934a9cd-ed64-4339-baa7-2ac70b0ba8d6",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "external_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "number_of_employees",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_leader_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reporting_groups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roles",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10ef9666-dc64-4b2b-bb20-942cb56077d1",
+          "name": "Create Employee",
+          "request": {
+            "name": "Create Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88de2413-a144-4a6d-8002-838b43737685",
+              "name": "For a 200 response code, the response body contains an object describing the employee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"custom_employee_id\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"temporary_password\": \"string\",\n  \"team_leader_id\": \"string\",\n  \"team_leader_email\": \"string\",\n  \"role\": \"string\",\n  \"manage_team\": false,\n  \"license_type\": \"string\",\n  \"channels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"employment_status\": \"string\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"string\",\n  \"state_or_country\": \"string\",\n  \"profile_text\": \"string\",\n  \"image\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45f050b9-f3ff-4cb4-ad32-2e1da88beb57",
+              "name": "Created — A 201 response code indicates that the employee has been created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1916c5dc-2308-4053-ab6c-94eff27ded02",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7dc31736-dd3e-4731-a335-823c8df1f69b",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3300c66-ead6-43d9-8256-8bc85520f2e5",
+          "name": "Deactivate Employee",
+          "request": {
+            "name": "Deactivate Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees",
+                ":id",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Email or custom_employee_id of the employee"
+                },
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f4e14c5-8cac-4ec5-a4e8-18a6940f8d7c",
+              "name": "A 200 response code indicates that the employee has been deactivated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b6830f4-c0e9-42f0-97e0-02ee28cc6a65",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ce63930-3b07-4e20-a727-546912da65a6",
+              "name": "Not Found — The employee was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "776d5d65-1b2c-4b83-85e0-4c2dcc3bb914",
+              "name": "Unprocessable Entity — The request was well-formed but was unable to be followed due to semantic errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2b69379-ec5c-4047-9881-9862532c0d44",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Email or custom_employee_id of the employee"
+                    },
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bcf1a4b-f558-4059-9fed-6ac276461046",
+          "name": "Invite Employee",
+          "request": {
+            "name": "Invite Employee",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "employees",
+                "invite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43fca829-701b-44c4-bf2d-aa17a75aa000",
+              "name": "For a 200 response code, the response body contains an object describing the employee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    "invite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"custom_employee_id\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"temporary_password\": \"string\",\n  \"team_leader_id\": \"string\",\n  \"team_leader_email\": \"string\",\n  \"role\": \"string\",\n  \"manage_team\": false,\n  \"license_type\": \"string\",\n  \"channels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"employment_status\": \"string\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"string\",\n  \"state_or_country\": \"string\",\n  \"profile_text\": \"string\",\n  \"image\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb58c5b3-8ebe-4540-bd60-d340c136cf42",
+              "name": "Created — A 201 response code indicates that the employee has been invited.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    "invite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0704bb51-ac1f-4283-b34f-98d72d20731c",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    "invite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "979ccb06-add5-4cd9-ae2f-6efaac2094fd",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "employees",
+                    "invite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"custom_employee_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"temporary_password\": \"<string>\",\n  \"team_leader_id\": \"<string>\",\n  \"team_leader_email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"manage_team\": \"<boolean>\",\n  \"license_type\": \"<string>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employment_status\": \"<string>\",\n  \"start_date\": \"2026-03-15\",\n  \"hometown\": \"<string>\",\n  \"state_or_country\": \"<string>\",\n  \"profile_text\": \"<string>\",\n  \"image\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain for the Agent Connect API",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "subdomain",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.api.stellaconnect.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a2658e3-8f8d-4c2b-845a-690acf4fa522",
+    "name": "Agent Connect Coaching Employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Agent Connect API",
+      "type": "text/plain"
+    }
+  }
+}

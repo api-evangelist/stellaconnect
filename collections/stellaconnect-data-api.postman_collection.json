@@ -1,0 +1,433 @@
+{
+  "item": [
+    {
+      "id": "681f98d9-31d8-408a-bbe1-21fef79dd7d7",
+      "name": "Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f043034c-75fc-4818-a677-d2b53dc0282c",
+          "name": "Feedbacks v2",
+          "request": {
+            "name": "Feedbacks v2",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "created_at_gte",
+                  "value": "<dateTime>",
+                  "description": "A filter for interactions created at or after the specified date/time"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_at_lte",
+                  "value": "<dateTime>",
+                  "description": "A filter for interactions created at or before the specified date/time"
+                },
+                {
+                  "disabled": false,
+                  "key": "responded_at_gte",
+                  "value": "<dateTime>",
+                  "description": "A filter for interactions responded at or after the specified date/time"
+                },
+                {
+                  "disabled": false,
+                  "key": "responded_at_lte",
+                  "value": "<dateTime>",
+                  "description": "A filter for interactions responded at or before the specified date/time"
+                },
+                {
+                  "disabled": false,
+                  "key": "stream",
+                  "value": "<boolean>",
+                  "description": "Enables HTTP streaming (defaults to false)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Specify the maximum number of interactions to be returned in a single request (defaults to 1000). See the 'Filter by time or sequence' article to learn more."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<integer>",
+                  "description": "A filter for interactions with Sequence IDs higher than the number provided (non-inclusive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_recovery",
+                  "value": "<boolean>",
+                  "description": "Include Service Recovery interactions in returned data (defaults to false)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65c93ee8-c507-4a23-aee7-b1b359348f72",
+              "name": "For a 200 response code, the response body contains an array of Feedback records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "created_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "stream",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_recovery",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"sequence_id\": 2960,\n  \"parent_uuid\": \"string\",\n  \"is_recovery\": false,\n  \"branding\": \"string\",\n  \"channel\": \"string\",\n  \"ext_interaction_id\": \"string\",\n  \"language\": \"string\",\n  \"survey_id\": 3933,\n  \"survey_name\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_created_at\": \"1975-02-13T23:51:03.196Z\",\n  \"request_delivery_status\": \"string\",\n  \"request_sent_at\": \"1984-04-14T15:14:26.543Z\",\n  \"requested_via\": \"string\",\n  \"response_received_at\": \"2013-09-03T14:26:30.165Z\",\n  \"reward_eligible\": false,\n  \"reward_name\": \"string\",\n  \"marketing\": {\n    \"custom_link_eligible\": true,\n    \"custom_link_initiated\": true,\n    \"facebook_follow_eligible\": false,\n    \"facebook_follow_initiated\": true,\n    \"facebook_share_eligible\": false,\n    \"facebook_share_initiated\": true,\n    \"twitter_follow_eligible\": true,\n    \"twitter_follow_initiated\": false,\n    \"twitter_share_eligible\": true,\n    \"twitter_share_initiated\": true\n  },\n  \"employee\": {\n    \"custom_id\": \"string\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"team_leader\": {\n    \"custom_id\": \"string\",\n    \"full_name\": \"string\"\n  },\n  \"customer\": {\n    \"custom_id\": \"string\",\n    \"email\": \"string\",\n    \"full_name\": \"string\"\n  },\n  \"custom_properties\": {},\n  \"answers\": {\n    \"question_id\": \"string\",\n    \"question_text\": \"string\",\n    \"comment\": \"string\",\n    \"selected_options\": {\n      \"option_id\": \"string\",\n      \"option_text\": \"string\",\n      \"integer_value\": 9937\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105670cc-9317-433c-b4cf-bb2522dbeab8",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "created_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "stream",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_recovery",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb9c23af-2c39-4ef2-89e5-28fb2d947ff7",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "created_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_gte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "responded_at_lte",
+                      "value": "2025-12-20T00:00:00-05:00"
+                    },
+                    {
+                      "key": "stream",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_recovery",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Token",
+                    "key": "Authorization",
+                    "value": "[insert your token here]"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain for the Agent Connect API",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "subdomain",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.api.stellaconnect.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e04711a4-8caf-4f8f-b186-eca8aaa89412",
+    "name": "Agent Connect Coaching Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Agent Connect API",
+      "type": "text/plain"
+    }
+  }
+}

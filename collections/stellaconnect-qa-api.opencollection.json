@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agent Connect Coaching Qa API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Qa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "QA Reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/qa",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              }
+            ],
+            "params": [
+              {
+                "name": "created_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request reviews completed after or at the specified date and time"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request reviews completed before or at the specified date and time"
+              },
+              {
+                "name": "after",
+                "value": "1000",
+                "type": "query",
+                "description": "Request reviews after the specified sequence ID"
+              }
+            ]
+          },
+          "docs": "QA Reviews"
+        },
+        {
+          "info": {
+            "name": "QA Audits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/qa/audits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              }
+            ],
+            "params": [
+              {
+                "name": "created_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request QA Audits created after or at the specified date and time"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request QA Audits created before or at the specified date and time"
+              },
+              {
+                "name": "completed_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request QA Audits completed after or at the specified date and time"
+              },
+              {
+                "name": "completed_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request QA Audits completed before or at the specified date and time"
+              },
+              {
+                "name": "after",
+                "value": "1000",
+                "type": "query",
+                "description": "Request QA Audits after the specified Sequence ID"
+              }
+            ]
+          },
+          "docs": "QA Audits"
+        },
+        {
+          "info": {
+            "name": "QA Calibrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/qa/calibrations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              }
+            ],
+            "params": [
+              {
+                "name": "created_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Calibrations created after or at the specified date and time"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Calibrations created before or at the specified date and time"
+              },
+              {
+                "name": "completed_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Calibrations completed after or at the specified date and time"
+              },
+              {
+                "name": "completed_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Calibrations completed before or at the specified date and time"
+              },
+              {
+                "name": "after",
+                "value": "1000",
+                "type": "query",
+                "description": "Request Calibrations after the specified Sequence ID"
+              }
+            ]
+          },
+          "docs": "QA Calibrations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

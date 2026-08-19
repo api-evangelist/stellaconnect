@@ -1,16 +1,14 @@
 generated: '2026-07-21'
 method: derived
 status: candidate
-source: openapi/ (no official Stella Connect / Medallia Agent Connect MCP server found on npm, the
-  MCP registry, or the Agent Connect docs)
+source: openapi/ (no official Stella Connect / Medallia Agent Connect MCP server found on npm, the MCP
+  registry, or the Agent Connect docs)
 server:
   name: stellaconnect-agent-connect
   transport: http
   url: null
-notes: >-
-  Candidate tool list derived from the harvested Agent Connect OpenAPI operations. Only
-  createRequest carries an operationId in the provider spec; the remaining tools reference their
-  method + path.
+notes: Candidate tool list derived from the harvested Agent Connect OpenAPI operations. Only createRequest
+  carries an operationId in the provider spec; the remaining tools reference their method + path.
 tools:
 - name: create_feedback_request
   description: Create a standard feedback request (survey) for a customer interaction
@@ -54,3 +52,9 @@ tools:
 - name: deactivate_employee
   description: Deactivate an employee
   source_operation: openapi/stellaconnect-user-management-openapi-original.yml#put /v2/employees/{id}/deactivate
+deployment:
+  mode: none
+  verified: derived
+  tools: 14
+  checked: '2026-08-12'
+  source: catalog MCP census

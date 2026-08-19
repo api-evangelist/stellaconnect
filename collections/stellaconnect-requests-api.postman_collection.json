@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "e8f1a4df-3a29-40b6-b541-75c431d8557f",
+      "name": "Requests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5bf053f0-5b35-46c5-ba5f-8cb7da1b52d3",
+          "name": "Create a standard feedback request",
+          "request": {
+            "name": "Create a standard feedback request",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain for the Agent Connect API",
+                  "type": "any",
+                  "value": "{{subdomain}}",
+                  "key": "subdomain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Production API Key",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": \"<string>\",\n  \"customer\": {\n    \"custom_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"employee\": {\n    \"custom_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ext_interaction_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"do_not_send\": \"<boolean>\",\n  \"brand\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"custom_properties\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c947e876-0ce5-4626-a964-2736d18dc3aa",
+              "name": "For a 200 response code, the response body contains an object describing the Feedback request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"customer\": {\n    \"custom_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"employee\": {\n    \"custom_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ext_interaction_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"do_not_send\": \"<boolean>\",\n  \"brand\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"custom_properties\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customer\": {\n    \"custom_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\"\n  },\n  \"employee\": {\n    \"custom_id\": \"string\",\n    \"email\": \"string\"\n  },\n  \"channel\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ext_interaction_id\": \"string\",\n  \"external_url\": \"string\",\n  \"do_not_send\": false,\n  \"brand\": \"string\",\n  \"language\": \"string\",\n  \"country\": \"string\",\n  \"custom_properties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dae0af37-2301-4176-8b2a-e12347f6bd3a",
+              "name": "Validation Error — The request was invalid. Please check the required request parameters and try again.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"customer\": {\n    \"custom_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"employee\": {\n    \"custom_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ext_interaction_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"do_not_send\": \"<boolean>\",\n  \"brand\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"custom_properties\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b16e2b94-816d-4cab-8dd3-931991de6df7",
+              "name": "Forbidden — The request was denied due to an authentication failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"customer\": {\n    \"custom_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"employee\": {\n    \"custom_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ext_interaction_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"do_not_send\": \"<boolean>\",\n  \"brand\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"custom_properties\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51c1f5e2-9a6c-454c-a2b0-86f95cec8ffb",
+              "name": "Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Subdomain for the Agent Connect API",
+                      "type": "any",
+                      "value": "{{subdomain}}",
+                      "key": "subdomain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Production API Key",
+                    "key": "x-api-key",
+                    "value": "[insert your API key here]"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"customer\": {\n    \"custom_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"employee\": {\n    \"custom_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ext_interaction_id\": \"<string>\",\n  \"external_url\": \"<string>\",\n  \"do_not_send\": \"<boolean>\",\n  \"brand\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"custom_properties\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain for the Agent Connect API",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "subdomain",
+      "key": "subdomain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{subdomain}}.api.stellaconnect.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "875ba1d6-79c0-4eb4-b18d-04b7385b5c6a",
+    "name": "Agent Connect Coaching Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Agent Connect API",
+      "type": "text/plain"
+    }
+  }
+}

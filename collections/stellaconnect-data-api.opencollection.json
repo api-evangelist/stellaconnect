@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agent Connect Coaching Data API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Feedbacks v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/data",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              }
+            ],
+            "params": [
+              {
+                "name": "created_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "A filter for interactions created at or after the specified date/time"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "A filter for interactions created at or before the specified date/time"
+              },
+              {
+                "name": "responded_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "A filter for interactions responded at or after the specified date/time"
+              },
+              {
+                "name": "responded_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "A filter for interactions responded at or before the specified date/time"
+              },
+              {
+                "name": "stream",
+                "value": "false",
+                "type": "query",
+                "description": "Enables HTTP streaming (defaults to false)"
+              },
+              {
+                "name": "limit",
+                "value": "1000",
+                "type": "query",
+                "description": "Specify the maximum number of interactions to be returned in a single request (defaults to 1000). See the 'Filter by time or sequence' article to learn more."
+              },
+              {
+                "name": "after",
+                "value": "1000",
+                "type": "query",
+                "description": "A filter for interactions with Sequence IDs higher than the number provided (non-inclusive)"
+              },
+              {
+                "name": "include_recovery",
+                "value": "false",
+                "type": "query",
+                "description": "Include Service Recovery interactions in returned data (defaults to false)"
+              }
+            ]
+          },
+          "docs": "Feedbacks v2"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

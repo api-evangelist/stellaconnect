@@ -1,0 +1,295 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agent Connect Coaching Employees API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activate Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees/:id/activate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Email or custom ID"
+              }
+            ]
+          },
+          "docs": "Activate Employee"
+        },
+        {
+          "info": {
+            "name": "Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Email or custom_employee_id of the employee"
+              }
+            ]
+          },
+          "docs": "Employee"
+        },
+        {
+          "info": {
+            "name": "Update Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Email or custom_employee_id of the employee"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Employee"
+        },
+        {
+          "info": {
+            "name": "Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) External ID of the last employee in the current paginated response. This is used to build the next page of employees."
+              },
+              {
+                "name": "number_of_employees",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Sets the amount of employees that will be returned during each request. Default = 100. Max = 500."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the users returned based on their status. Options are: active, deactivated, pending review, confirmed, unapproved, created."
+              },
+              {
+                "name": "employee_status",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the users returned based on their employment status. Options are: full-time, part-time, temp."
+              },
+              {
+                "name": "team_leader_ids",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the users returned based on team leader. Use the team leader's numerical ID as the value. Add multiple parameters to return employees from multiple teams."
+              },
+              {
+                "name": "reporting_groups",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the users returned based on reporting group. Use the reporting group's name as the value. Add multiple parameters to return employees from multiple reporting groups."
+              },
+              {
+                "name": "roles",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Filters the users returned based on role. Use the role's name as the value. Add multiple parameters to return employees from multiple roles."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "(Optional) Returns employees that partially match the specified value. This will initiate a search by the employee's name, email address, and custom employee ID."
+              }
+            ]
+          },
+          "docs": "Employees"
+        },
+        {
+          "info": {
+            "name": "Create Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Employee"
+        },
+        {
+          "info": {
+            "name": "Deactivate Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees/:id/deactivate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Email or custom_employee_id of the employee"
+              }
+            ]
+          },
+          "docs": "Deactivate Employee"
+        },
+        {
+          "info": {
+            "name": "Invite Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/employees/invite",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite Employee"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

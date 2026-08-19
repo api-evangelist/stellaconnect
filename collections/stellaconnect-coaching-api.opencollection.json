@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agent Connect Coaching API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coaching",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "1:1 Coaching Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{subdomain}.api.stellaconnect.net/v2/coaching/sessions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "[insert your token here]"
+              },
+              {
+                "name": "x-api-key",
+                "value": "[insert your API key here]"
+              }
+            ],
+            "params": [
+              {
+                "name": "created_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Coaching Sessions created after or at the specified date and time"
+              },
+              {
+                "name": "created_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Coaching Sessions created before or at the specified date and time"
+              },
+              {
+                "name": "shared_at_gte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Coaching Sessions completed after or at the specified date and time"
+              },
+              {
+                "name": "shared_at_lte",
+                "value": "2025-12-20T00:00:00-05:00",
+                "type": "query",
+                "description": "Request Coaching Sessions completed before or at the specified date and time"
+              },
+              {
+                "name": "after",
+                "value": "1000",
+                "type": "query",
+                "description": "Request Coaching Sessions after the specified Sequence ID"
+              }
+            ]
+          },
+          "docs": "1:1 Coaching Sessions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
