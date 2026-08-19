@@ -30,7 +30,7 @@ x-tier-reason: acquired-live-api-surface
 x-status: acquired
 x-acquired-by: medallia
 x-product-name: Medallia Agent Connect
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-21'
 tags:
