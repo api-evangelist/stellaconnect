@@ -41,6 +41,15 @@ tags:
 - Contact Centers
 - Surveys
 - Customer Experience
+- Software-as-a-Service
+tags_raw:
+- Customer Service
+- Customer Feedback
+- Quality Assurance
+- Coaching
+- Contact Centers
+- Surveys
+- Customer Experience
 - SaaS
 apis:
 - aid: stellaconnect:stellaconnect-coaching-api
@@ -99,6 +108,8 @@ apis:
   humanURL: https://docs.medallia.com/en/agent-connect/api/requests
   baseURL: https://api.stellaconnect.net
   tags:
+  - QA
+  tags_raw:
   - Qa
   properties:
   - type: OpenAPI
