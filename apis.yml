@@ -22,15 +22,19 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - rate-limits
+  - security
+  - sandbox
+  - {url: 'https://stellaconnect.com', status: 301, note: 'declared website redirects to https://www.medallia.com/ — a different registrable domain (stellaconnect.com -> medallia.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
+  generated: '2026-09-03'
   method: derived
 image: https://docs-assets.medallia.com/icons/medallia.svg
 x-type: company
@@ -221,8 +225,9 @@ common:
   url: well-known/stellaconnect-well-known.yml
 - type: LLMsTxt
   url: llms/stellaconnect-llms.txt
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/stellaconnect-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: DataModel
   url: data-model/stellaconnect-data-model.yml
 - type: Overlay
