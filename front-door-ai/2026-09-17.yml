@@ -1,0 +1,29 @@
+# Front Door AI Index — stellaconnect — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: stellaconnect
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: stellaconnect.com
+  final_host: www.medallia.com
+  ownership: inherited
+  owner: stellaconnect
+  shares_host_with: null
+  inherited_from: monkeylearn.com
+  verdict: scored
+  score: null
+  host_score: 19
+  density: null
+  words: 1682
+  tiers:
+    agentic: 0
+    core: 19
+    model: 0
+  ambiguous: 9
+  top_terms:
+    AI: 18
+    agent: 4
+    intelligence: 3
+    smart: 2
+    gen ai: 1

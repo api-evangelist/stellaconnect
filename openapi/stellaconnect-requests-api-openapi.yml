@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Agent Connect Coaching Requests API
+  title: Agent Connect Requests API
   description: Agent Connect API
   termsOfService: https://medallia.com/about/legal/terms/api
   version: 1.0.0
@@ -12,7 +12,6 @@ servers:
       default: subdomain
 security:
 - ApiKeyInHeader: []
-  JwtAuth: []
 tags:
 - name: Requests
 paths:
@@ -77,8 +76,6 @@ paths:
       - Requests
 components:
   schemas:
-    RequestBodyCreateFeedbackRequest:
-      $ref: '#/components/schemas/FeedbackRequestModel'
     ResponseBodyCreateFeedbackRequest:
       type: object
       properties:
@@ -140,6 +137,8 @@ components:
           additionalProperties: false
           description: "Custom properties allow you to pass additional metadata about an interaction to Agent Connect. This data can then be used to filter responses, shown on each feedback response, and can be used for QA selection. \n\n The object must be key/value pairs of strings. New keys do not need to be pre-configured in Agent Connect; you can do that afterwards by contacting the Agent Connect team. The object must be a single level and does not support nesting. Note: Values have a maximum limit of 2,000 characters; any payload exceeding this will be truncated by the server to the first 2,000 characters."
       additionalProperties: false
+    RequestBodyCreateFeedbackRequest:
+      $ref: '#/components/schemas/FeedbackRequestModel'
     FeedbackRequestModel:
       required:
       - channel
@@ -208,7 +207,3 @@ components:
       type: apiKey
       name: x-api-key
       in: header
-    JwtAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT

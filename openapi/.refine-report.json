@@ -1,24 +1,54 @@
 {
   "provider": "stellaconnect",
   "sources": [
-    "stellaconnect-coaching-api-openapi.yml",
-    "stellaconnect-data-api-openapi.yml",
-    "stellaconnect-employees-api-openapi.yml",
-    "stellaconnect-qa-api-openapi.yml",
-    "stellaconnect-recoveries-api-openapi.yml",
-    "stellaconnect-requests-api-openapi.yml"
+    "_original/stellaconnect-data-return-openapi-original.yml",
+    "_original/stellaconnect-requests-openapi-original.yml",
+    "_original/stellaconnect-user-management-openapi-original.yml"
   ],
   "outputs": [
     "stellaconnect-coaching-api-openapi.yml",
     "stellaconnect-data-api-openapi.yml",
-    "stellaconnect-employees-api-openapi.yml",
     "stellaconnect-qa-api-openapi.yml",
     "stellaconnect-recoveries-api-openapi.yml",
-    "stellaconnect-requests-api-openapi.yml"
+    "stellaconnect-requests-api-openapi.yml",
+    "stellaconnect-employees-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "stellaconnect-data-return-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "stellaconnect-data-return-openapi-original.yml: tagged paths GET /v2/coaching/sessions -> Coaching",
+    "stellaconnect-data-return-openapi-original.yml: tagged paths GET /v2/qa -> Qa",
+    "stellaconnect-data-return-openapi-original.yml: tagged paths GET /v2/qa/audits -> Qa",
+    "stellaconnect-data-return-openapi-original.yml: tagged paths GET /v2/qa/calibrations -> Qa",
+    "stellaconnect-data-return-openapi-original.yml: tagged paths GET /v2/data -> Data",
+    "stellaconnect-data-return-openapi-original.yml: declared missing tag: Coaching",
+    "stellaconnect-data-return-openapi-original.yml: declared missing tag: Data",
+    "stellaconnect-data-return-openapi-original.yml: declared missing tag: Qa",
+    "stellaconnect-requests-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "stellaconnect-requests-openapi-original.yml: tagged paths POST /v1/requests -> Requests",
+    "stellaconnect-requests-openapi-original.yml: tagged paths POST /v1/recoveries -> Recoveries",
+    "stellaconnect-requests-openapi-original.yml: declared missing tag: Recoveries",
+    "stellaconnect-requests-openapi-original.yml: declared missing tag: Requests",
+    "stellaconnect-user-management-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths PUT /v2/employees/{id}/activate -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths GET /v2/employees/{id} -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths PUT /v2/employees/{id} -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths GET /v2/employees -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths POST /v2/employees -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths PUT /v2/employees/{id}/deactivate -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: tagged paths POST /v2/employees/invite -> Employees",
+    "stellaconnect-user-management-openapi-original.yml: declared missing tag: Employees",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "stellaconnect-coaching-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stellaconnect-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stellaconnect-employees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stellaconnect-qa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stellaconnect-recoveries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stellaconnect-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

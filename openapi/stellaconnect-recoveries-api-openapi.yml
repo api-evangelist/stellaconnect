@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Agent Connect Coaching Recoveries API
+  title: Agent Connect Recoveries API
   description: Agent Connect API
   termsOfService: https://medallia.com/about/legal/terms/api
   version: 1.0.0
@@ -12,7 +12,6 @@ servers:
       default: subdomain
 security:
 - ApiKeyInHeader: []
-  JwtAuth: []
 tags:
 - name: Recoveries
 paths:
@@ -74,6 +73,8 @@ paths:
           description: Internal Server Error — The server encountered an unexpected condition that prevented it from fulfilling the request. File a Support ticket if this error is reproducible.
       tags:
       - Recoveries
+      operationId: postV1Recoveries
+      x-operation-id-source: derived
 components:
   schemas:
     RequestBodyCreateServiceRecoveryRequest:
@@ -121,7 +122,3 @@ components:
       type: apiKey
       name: x-api-key
       in: header
-    JwtAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
