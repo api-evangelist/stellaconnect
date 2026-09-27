@@ -77,8 +77,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RequestBodyCreateServiceRecoveryRequest:
-      $ref: '#/components/schemas/ServiceRecoveryRequestModel'
     ServiceRecoveryRequestModel:
       type: object
       properties:
@@ -110,6 +108,8 @@ components:
         external_url:
           type: string
           description: The URL of the interaction with which the initial feedback request is associated, from your CRM or helpdesk system
+    RequestBodyCreateServiceRecoveryRequest:
+      $ref: '#/components/schemas/ServiceRecoveryRequestModel'
     ResponseBodyCreateServiceRecoveryRequest:
       type: object
       properties:
