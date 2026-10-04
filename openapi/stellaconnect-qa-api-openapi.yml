@@ -280,6 +280,153 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ResponseBodyDataReturn_QACalibrations:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: The universal unique identifier for this Calibration
+        alignment_score:
+          type: integer
+          description: The alignment score derived from all participants' input
+        sequence_id:
+          type: integer
+          description: The Sequence ID of the Calibration
+        started_by:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of the user that started the Calibration
+            email:
+              type: string
+              description: Email address of the user that started the Calibration
+            first_name:
+              type: string
+              description: First name of the user that started the Calibration
+            last_name:
+              type: string
+              description: Last name of the user that started the Calibration
+          additionalProperties: false
+          description: Details about the user that started the Calibration
+        meeting_date:
+          type: string
+          description: The date of the Calibration
+          format: date-time
+        interaction_id:
+          type: string
+          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk, etc.)
+        interaction_url:
+          type: string
+          description: The external URL associated with the interaction from the original request
+        participants:
+          type: object
+          properties:
+            custom_id:
+              type: string
+              description: The ID of an individual participant
+            email:
+              type: string
+              description: Email address of an individual participant
+            first_name:
+              type: string
+              description: First name of an individual participant
+            last_name:
+              type: string
+              description: Last name of an individual participant
+          additionalProperties: false
+          description: Details about the participants in the Calibration
+        notes:
+          type: string
+          description: Any notes attached to the Calibration
+        scorecard:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the scorecard used by the participants
+            archived_at:
+              type: string
+              description: Archived date of the scorecard used by the participants, if applicable
+              format: date-time
+          additionalProperties: false
+          description: Details about the scorecard used by the participants
+        completed_at:
+          type: string
+          description: The time the session was completed
+          format: date-time
+        created_at:
+          type: string
+          description: The time the session was created
+          format: date-time
+        questions:
+          type: object
+          properties:
+            question_text:
+              type: string
+              description: Text of a specific question on the scorecard
+            section:
+              type: string
+              description: Section in which a specific question was contained
+            section_weight:
+              type: integer
+              description: The assigned weight of the section in which a specific question was contained, if applicable
+            question_alignment_score:
+              type: integer
+              description: The alignment score derived from all participants' input on a specific question
+            selected_option:
+              type: object
+              properties:
+                qa_option_id:
+                  type: string
+                  description: The ID of the selected answer to the question (will be empty if no answer was selected)
+                option_text:
+                  type: string
+                  description: The text of the selected answer to the question (will be empty if no answer was selected)
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+              additionalProperties: false
+              description: Details about the option selected by the participant
+            options:
+              type: object
+              properties:
+                option_text:
+                  type: string
+                  description: The text of a specific answer choice
+                score:
+                  type: integer
+                  description: Score of the option (in percentage points) if counted toward score
+                participants:
+                  type: object
+                  properties:
+                    employee:
+                      type: object
+                      properties:
+                        custom_id:
+                          type: string
+                          description: The ID of a participant who selected a specific answer
+                        email:
+                          type: string
+                          description: Email address of a participant who selected a specific answer
+                        first_name:
+                          type: string
+                          description: First name of a participant who selected a specific answer
+                        last_name:
+                          type: string
+                          description: Last name of a participant who selected a specific answer
+                        comment:
+                          type: string
+                          description: Comment left by an individual participant who selected a specific answer, if applicable
+                      additionalProperties: false
+                      description: Details about the employee who selected a specific answer
+                  additionalProperties: false
+                  description: An array of employees who participated in the Calibration
+              additionalProperties: false
+              description: Details about the available options
+          additionalProperties: false
+          description: Details about the questions on the scorecard
+      additionalProperties: false
     ResponseBodyDataReturn_QAAudits:
       type: object
       properties:
@@ -542,153 +689,6 @@ components:
                   description: Details about the options selected by the reviewer
               additionalProperties: false
               description: Details about a specific question on the scorecard
-          additionalProperties: false
-          description: Details about the questions on the scorecard
-      additionalProperties: false
-    ResponseBodyDataReturn_QACalibrations:
-      type: object
-      properties:
-        uuid:
-          type: string
-          description: The universal unique identifier for this Calibration
-        alignment_score:
-          type: integer
-          description: The alignment score derived from all participants' input
-        sequence_id:
-          type: integer
-          description: The Sequence ID of the Calibration
-        started_by:
-          type: object
-          properties:
-            custom_id:
-              type: string
-              description: The ID of the user that started the Calibration
-            email:
-              type: string
-              description: Email address of the user that started the Calibration
-            first_name:
-              type: string
-              description: First name of the user that started the Calibration
-            last_name:
-              type: string
-              description: Last name of the user that started the Calibration
-          additionalProperties: false
-          description: Details about the user that started the Calibration
-        meeting_date:
-          type: string
-          description: The date of the Calibration
-          format: date-time
-        interaction_id:
-          type: string
-          description: Client-supplied external Interaction ID from the originating system (CRM, helpdesk, etc.)
-        interaction_url:
-          type: string
-          description: The external URL associated with the interaction from the original request
-        participants:
-          type: object
-          properties:
-            custom_id:
-              type: string
-              description: The ID of an individual participant
-            email:
-              type: string
-              description: Email address of an individual participant
-            first_name:
-              type: string
-              description: First name of an individual participant
-            last_name:
-              type: string
-              description: Last name of an individual participant
-          additionalProperties: false
-          description: Details about the participants in the Calibration
-        notes:
-          type: string
-          description: Any notes attached to the Calibration
-        scorecard:
-          type: object
-          properties:
-            name:
-              type: string
-              description: Name of the scorecard used by the participants
-            archived_at:
-              type: string
-              description: Archived date of the scorecard used by the participants, if applicable
-              format: date-time
-          additionalProperties: false
-          description: Details about the scorecard used by the participants
-        completed_at:
-          type: string
-          description: The time the session was completed
-          format: date-time
-        created_at:
-          type: string
-          description: The time the session was created
-          format: date-time
-        questions:
-          type: object
-          properties:
-            question_text:
-              type: string
-              description: Text of a specific question on the scorecard
-            section:
-              type: string
-              description: Section in which a specific question was contained
-            section_weight:
-              type: integer
-              description: The assigned weight of the section in which a specific question was contained, if applicable
-            question_alignment_score:
-              type: integer
-              description: The alignment score derived from all participants' input on a specific question
-            selected_option:
-              type: object
-              properties:
-                qa_option_id:
-                  type: string
-                  description: The ID of the selected answer to the question (will be empty if no answer was selected)
-                option_text:
-                  type: string
-                  description: The text of the selected answer to the question (will be empty if no answer was selected)
-                score:
-                  type: integer
-                  description: Score of the option (in percentage points) if counted toward score
-              additionalProperties: false
-              description: Details about the option selected by the participant
-            options:
-              type: object
-              properties:
-                option_text:
-                  type: string
-                  description: The text of a specific answer choice
-                score:
-                  type: integer
-                  description: Score of the option (in percentage points) if counted toward score
-                participants:
-                  type: object
-                  properties:
-                    employee:
-                      type: object
-                      properties:
-                        custom_id:
-                          type: string
-                          description: The ID of a participant who selected a specific answer
-                        email:
-                          type: string
-                          description: Email address of a participant who selected a specific answer
-                        first_name:
-                          type: string
-                          description: First name of a participant who selected a specific answer
-                        last_name:
-                          type: string
-                          description: Last name of a participant who selected a specific answer
-                        comment:
-                          type: string
-                          description: Comment left by an individual participant who selected a specific answer, if applicable
-                      additionalProperties: false
-                      description: Details about the employee who selected a specific answer
-                  additionalProperties: false
-                  description: An array of employees who participated in the Calibration
-              additionalProperties: false
-              description: Details about the available options
           additionalProperties: false
           description: Details about the questions on the scorecard
       additionalProperties: false

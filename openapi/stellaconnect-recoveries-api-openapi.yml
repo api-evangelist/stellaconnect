@@ -84,8 +84,6 @@ components:
           type: string
           description: The universal unique identifier for this service recovery request
       additionalProperties: false
-    RequestBodyCreateServiceRecoveryRequest:
-      $ref: '#/components/schemas/ServiceRecoveryRequestModel'
     ServiceRecoveryRequestModel:
       type: object
       properties:
@@ -117,6 +115,8 @@ components:
         external_url:
           type: string
           description: The URL of the interaction with which the initial feedback request is associated, from your CRM or helpdesk system
+    RequestBodyCreateServiceRecoveryRequest:
+      $ref: '#/components/schemas/ServiceRecoveryRequestModel'
   securitySchemes:
     ApiKeyInHeader:
       type: apiKey
