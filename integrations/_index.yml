@@ -30,5 +30,5 @@
     quality:
     - unknown
     builder: 'community (Meltano Hub variant maintainers: pathlight)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
