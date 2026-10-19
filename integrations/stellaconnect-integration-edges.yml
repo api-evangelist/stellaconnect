@@ -29,8 +29,26 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: pathlight)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/241521/stella-connect/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - Stella Connect
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: Reporting and Analytics
 method: searched
 checked:
 - https://github.com/meltano/hub
+- zendesk/integrations/zendesk-integration-edges.yml
 source:
 - https://github.com/meltano/hub

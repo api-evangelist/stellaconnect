@@ -32,3 +32,16 @@
     builder: 'community (Meltano Hub variant maintainers: pathlight)'
   status: not-a-workflow
   arazzo: null
+- slug: stellaconnect-zendesk-own
+  label: Zendesk (own)
+  partner: zendesk
+  partner_name: Zendesk (own)
+  category: Reporting and Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.zendesk.com/marketplace/apps/support/241521/stella-connect/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
